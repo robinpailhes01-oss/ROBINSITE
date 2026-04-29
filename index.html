@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Robin — Builder d'apps, logiciels & infra IA</title>
+<meta name="description" content="Portfolio de Robin : créateur d'applications, de logiciels et d'infrastructures IA sur mesure. Conception, déploiement, scaling." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#hero" class="logo">
+      <span class="logo__dot"></span>Robin<span class="logo__slash">/</span><span class="logo__suffix">dev</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#work">Projets</a>
+      <a href="#stack">Stack</a>
+      <a href="#testimonials">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--primary btn--sm">Travailler ensemble →</a>
+    <button class="nav__burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid"></div>
+    <div class="hero__glow hero__glow--1"></div>
+    <div class="hero__glow hero__glow--2"></div>
+  </div>
+  <div class="container hero__inner">
+    <div class="hero__left">
+      <div class="badge">
+        <span class="badge__dot"></span>Disponible pour de nouveaux projets
+      </div>
+      <h1 class="hero__title">
+        Je conçois des <span class="grad">apps</span>,
+        des logiciels<br/> et des <span class="grad grad--alt">infras IA</span><br/>qui passent à l'échelle.
+      </h1>
+      <p class="hero__sub">
+        Salut, moi c'est <strong>Robin</strong>. J'aide les fondateurs et les équipes à transformer une idée
+        en produit fonctionnel — du premier prototype jusqu'au déploiement
+        d'agents IA et de pipelines en production.
+      </p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary">Réserver un appel</a>
+        <a href="#work" class="btn btn--ghost">Voir mes projets</a>
+      </div>
+      <div class="hero__seen">
+        <span>Tech au cœur de mes projets :</span>
+        <div class="hero__logos">
+          <span>Next.js</span><span>Python</span><span>OpenAI</span><span>Claude</span><span>n8n</span><span>Supabase</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__right">
+      <div class="portrait">
+        <div class="portrait__frame">
+          <div class="portrait__placeholder">R</div>
+          <div class="portrait__name">ROBIN</div>
+        </div>
+        <div class="floating floating--1">
+          <div class="floating__icon">⚡</div>
+          <div>
+            <div class="floating__title">+30 projets livrés</div>
+            <div class="floating__sub">Apps, SaaS & IA</div>
+          </div>
+        </div>
+        <div class="floating floating--2">
+          <div class="floating__icon">🤖</div>
+          <div>
+            <div class="floating__title">Infra IA prod</div>
+            <div class="floating__sub">Agents & RAG déployés</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="container">
+    <div class="stats">
+      <div class="stats__item">
+        <div class="stats__num">30+</div>
+        <div class="stats__lbl">Produits livrés</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">15+</div>
+        <div class="stats__lbl">Agents IA en prod</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">5 ans</div>
+        <div class="stats__lbl">Dev & infra</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__num">100%</div>
+        <div class="stats__lbl">Clients satisfaits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED -->
+<section class="trusted">
+  <div class="container">
+    <p class="trusted__label">Ils m'ont fait confiance</p>
+    <div class="trusted__row">
+      <span class="trusted__brand">◆ Nexora</span>
+      <span class="trusted__brand">⬢ Volthub</span>
+      <span class="trusted__brand">◇ Lumen.ai</span>
+      <span class="trusted__brand">▲ Apex Studio</span>
+      <span class="trusted__brand">● Orbit</span>
+      <span class="trusted__brand">⬡ Foundry</span>
+      <span class="trusted__brand">✦ Northstar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container about__grid">
+    <div class="about__media">
+      <div class="about__photo">
+        <div class="about__photoInner">RP</div>
+      </div>
+      <div class="about__sticker">
+        <div>★</div>
+        <div>5 ans<br/>d'expérience</div>
+      </div>
+    </div>
+    <div class="about__content">
+      <p class="eyebrow">À propos</p>
+      <h2 class="h2">
+        Du <span class="grad">prototype</span> au produit qui tourne, <br/>en production.
+      </h2>
+      <p class="lead">
+        Je suis développeur full-stack et architecte d'infrastructures IA.
+        Mon truc : prendre une intuition floue, en tirer un MVP propre, puis
+        l'industrialiser avec les bons outils — apps web, mobile, automatisations,
+        agents et pipelines de données.
+      </p>
+      <ul class="about__list">
+        <li><span>01</span>Apps & SaaS pensés pour la conversion</li>
+        <li><span>02</span>Architecture cloud & infra IA scalable</li>
+        <li><span>03</span>Automatisations sur-mesure (n8n, scripts, agents)</li>
+        <li><span>04</span>Livraison rapide, code propre, doc claire</li>
+      </ul>
+      <a href="#contact" class="btn btn--primary">Discuter de ton projet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Services</p>
+      <h2 class="h2">Trois expertises, <span class="grad">un seul interlocuteur.</span></h2>
+    </div>
+    <div class="services__grid">
+      <article class="service">
+        <div class="service__icon">⌘</div>
+        <h3>Création d'apps</h3>
+        <p>Web & mobile, du wireframe au déploiement. Stack moderne (Next.js, React Native, Supabase) pour des produits rapides, beaux et stables.</p>
+        <ul>
+          <li>Landing & SaaS</li>
+          <li>App mobile cross-platform</li>
+          <li>Auth, paiement, dashboard</li>
+        </ul>
+      </article>
+      <article class="service service--featured">
+        <div class="service__icon">⌬</div>
+        <h3>Logiciels sur-mesure</h3>
+        <p>Outils internes, automatisations métier, intégrations API. Je remplace tes Excel et tes process manuels par un logiciel qui bosse pour toi.</p>
+        <ul>
+          <li>Outils internes & dashboards</li>
+          <li>Intégrations API & ETL</li>
+          <li>Workflows n8n / Zapier avancés</li>
+        </ul>
+      </article>
+      <article class="service">
+        <div class="service__icon">◉</div>
+        <h3>Infra IA</h3>
+        <p>Agents, RAG, fine-tuning, pipelines temps réel. Je conçois des infras IA qui marchent en production — pas juste en démo.</p>
+        <ul>
+          <li>Agents Claude / OpenAI</li>
+          <li>RAG & bases vectorielles</li>
+          <li>Monitoring, eval & coûts maîtrisés</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK / PORTFOLIO -->
+<section id="work" class="work">
+  <div class="container">
+    <div class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Projets sélectionnés</p>
+        <h2 class="h2">Quelques produits <span class="grad">livrés récemment.</span></h2>
+      </div>
+      <a href="#contact" class="btn btn--ghost btn--sm">Voir tout →</a>
+    </div>
+
+    <div class="work__grid">
+      <a class="card card--lg" href="#">
+        <div class="card__thumb card__thumb--1">
+          <div class="card__mock">⌘ &nbsp; nexora.app</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta"><span>SaaS</span><span>2025</span></div>
+          <h3>Nexora — Plateforme SaaS B2B</h3>
+          <p>Dashboard analytics + facturation + multi-tenant. Stack Next.js / Supabase / Stripe.</p>
+        </div>
+      </a>
+
+      <a class="card" href="#">
+        <div class="card__thumb card__thumb--2">
+          <div class="card__mock card__mock--ai">▮ Agent en ligne</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta"><span>Infra IA</span><span>2025</span></div>
+          <h3>Lumen — Agent commercial IA</h3>
+          <p>Agent multi-canal qui qualifie, relance et booke des rendez-vous 24/7.</p>
+        </div>
+      </a>
+
+      <a class="card" href="#">
+        <div class="card__thumb card__thumb--3">
+          <div class="card__mock">📱 Volthub Mobile</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta"><span>Mobile App</span><span>2024</span></div>
+          <h3>Volthub — App mobile cross-platform</h3>
+          <p>Application iOS/Android pour suivi de bornes EV en temps réel.</p>
+        </div>
+      </a>
+
+      <a class="card" href="#">
+        <div class="card__thumb card__thumb--4">
+          <div class="card__mock">⌬ Workflow n8n</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta"><span>Automatisation</span><span>2024</span></div>
+          <h3>Apex — Automatisations internes</h3>
+          <p>Pipeline n8n qui sauve 20h/semaine sur le traitement des leads et factures.</p>
+        </div>
+      </a>
+
+      <a class="card card--lg" href="#">
+        <div class="card__thumb card__thumb--5">
+          <div class="card__mock card__mock--ai">◉ RAG production</div>
+        </div>
+        <div class="card__body">
+          <div class="card__meta"><span>Infra IA</span><span>2025</span></div>
+          <h3>Foundry — Plateforme RAG d'entreprise</h3>
+          <p>Recherche augmentée sur 200k+ documents, réponses sourcées, latence &lt; 2s.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="stack">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Stack technique</p>
+      <h2 class="h2">Les outils que <span class="grad">j'utilise tous les jours.</span></h2>
+    </div>
+    <div class="stack__grid">
+      <div class="stack__col">
+        <h4>Front</h4>
+        <ul><li>Next.js / React</li><li>TypeScript</li><li>Tailwind CSS</li><li>React Native</li></ul>
+      </div>
+      <div class="stack__col">
+        <h4>Back</h4>
+        <ul><li>Node.js</li><li>Python (FastAPI)</li><li>PostgreSQL</li><li>Supabase</li></ul>
+      </div>
+      <div class="stack__col">
+        <h4>IA</h4>
+        <ul><li>Claude / OpenAI</li><li>LangChain / LlamaIndex</li><li>Pinecone / Qdrant</li><li>n8n / Make</li></ul>
+      </div>
+      <div class="stack__col">
+        <h4>Infra</h4>
+        <ul><li>Vercel / Cloudflare</li><li>Docker</li><li>AWS / GCP</li><li>GitHub Actions</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Témoignages</p>
+      <h2 class="h2">Ce que les clients <span class="grad">en disent.</span></h2>
+    </div>
+    <div class="testimonials__grid">
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <blockquote>Robin a livré notre plateforme SaaS en 6 semaines, prête pour 1000+ utilisateurs. Code propre, comm' nickel, vrai partenaire.</blockquote>
+        <figcaption><strong>Camille D.</strong><span>CEO, Nexora</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <blockquote>L'infra IA qu'il a montée nous a fait gagner 30h/semaine sur le support. Stable, scalable, et bien documentée.</blockquote>
+        <figcaption><strong>Julien M.</strong><span>CTO, Foundry</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <blockquote>Très rare de trouver quelqu'un aussi à l'aise sur le produit, le code ET l'IA. On retravaillera ensemble c'est sûr.</blockquote>
+        <figcaption><strong>Sarah L.</strong><span>Founder, Lumen.ai</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <div class="container">
+    <div class="cta__card">
+      <div class="cta__bg"></div>
+      <p class="eyebrow eyebrow--light">Travaillons ensemble</p>
+      <h2 class="h2 h2--light">
+        Une idée d'app, un projet d'<span class="grad">infra IA</span>,<br/>
+        ou un logiciel à construire ?
+      </h2>
+      <p class="cta__sub">Réponse sous 24h. Premier appel offert pour cadrer ton besoin.</p>
+      <div class="cta__actions">
+        <a href="mailto:robin@example.com" class="btn btn--primary btn--lg">robin@example.com</a>
+        <a href="https://cal.com" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">Réserver un créneau →</a>
+      </div>
+      <div class="cta__socials">
+        <a href="#">LinkedIn</a><span>·</span>
+        <a href="#">GitHub</a><span>·</span>
+        <a href="#">X / Twitter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="logo__dot"></span>Robin<span class="logo__slash">/</span><span class="logo__suffix">dev</span>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> Robin. Tous droits réservés.</p>
+    <p class="footer__made">Conçu et développé par Robin · Paris / Remote</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
