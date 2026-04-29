@@ -4,9 +4,43 @@
    =========================================================== */
 
 const isMobile = window.matchMedia('(max-width: 900px)').matches;
+const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.getElementById('year').textContent = new Date().getFullYear();
+document.body.classList.add('is-loading');
+
+/* -----------------------------------------------------------
+   0. LIVE TIME (Europe/Paris)
+   ----------------------------------------------------------- */
+function initLiveTime() {
+  const el = document.getElementById('navTime');
+  if (!el) return;
+  const fmt = new Intl.DateTimeFormat('fr-FR', {
+    hour: '2-digit', minute: '2-digit',
+    timeZone: 'Europe/Paris',
+    hour12: false,
+  });
+  const update = () => { el.textContent = fmt.format(new Date()); };
+  update();
+  setInterval(update, 30000);
+}
+
+/* -----------------------------------------------------------
+   0b. SCROLL PROGRESS
+   ----------------------------------------------------------- */
+function initProgress() {
+  const bar = document.querySelector('.progress__bar');
+  if (!bar) return;
+  const update = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const p = max > 0 ? (h.scrollTop / max) : 0;
+    bar.style.width = (p * 100).toFixed(2) + '%';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
 
 /* -----------------------------------------------------------
    1. LOADER
@@ -33,6 +67,7 @@ function runLoader() {
           loader.classList.add('is-loaded');
           setTimeout(() => {
             loader.style.display = 'none';
+            document.body.classList.remove('is-loading');
             resolve();
           }, 800);
         }, 300);
@@ -88,7 +123,11 @@ function initLenis() {
    3. CUSTOM CURSOR (magnetic)
    ----------------------------------------------------------- */
 function initCursor() {
-  if (isMobile) return;
+  if (isMobile || isTouch) {
+    const cursorEl = document.querySelector('.cursor');
+    if (cursorEl) cursorEl.style.display = 'none';
+    return;
+  }
   const cursor = document.querySelector('.cursor');
   const ring = cursor.querySelector('.cursor__ring');
   const dot = cursor.querySelector('.cursor__dot');
@@ -294,14 +333,13 @@ function initThree() {
   window.addEventListener('resize', resize);
 
   let scrollProgress = 0;
-  if (window.ScrollTrigger) {
-    ScrollTrigger.create({
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      onUpdate: (self) => { scrollProgress = self.progress; }
-    });
+  // Source de vérité : scroll natif (fonctionne même si ScrollTrigger pas chargé)
+  function syncScroll() {
+    const heroH = document.querySelector('.hero')?.offsetHeight || window.innerHeight;
+    scrollProgress = Math.min(1, Math.max(0, window.scrollY / heroH));
   }
+  window.addEventListener('scroll', syncScroll, { passive: true });
+  syncScroll();
 
   const clock = new THREE.Clock();
   function tick() {
@@ -330,11 +368,16 @@ function initThree() {
     mesh.rotation.y = t * 0.12 + targetX * 0.4;
     mesh.rotation.x = Math.sin(t * 0.08) * 0.15 + targetY * 0.25;
 
-    // Camera moves on scroll: pulls back & slightly up
-    camera.position.z = 6 + scrollProgress * 2.4;
-    camera.position.y = -scrollProgress * 1.2;
-    mesh.position.x = 1.6 + scrollProgress * 0.4; // lean to the right behind the title
-    camera.lookAt(mesh.position.x * 0.6, 0, 0);
+    // Camera & mesh — légèrement plus haut, scale décroissant au scroll
+    camera.position.z = 6.5 + scrollProgress * 1.5;
+    mesh.position.x = 1.8;
+    mesh.position.y = 0.2 - scrollProgress * 0.6;
+    const scale = 1.0 - scrollProgress * 0.35;
+    mesh.scale.setScalar(scale);
+    camera.lookAt(mesh.position.x * 0.55, 0, 0);
+
+    // Fade le canvas au scroll pour qu'il disparaisse avant la section suivante
+    canvas.style.opacity = Math.max(0, 1 - scrollProgress * 1.6);
 
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
@@ -387,6 +430,9 @@ async function boot() {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
   }
+
+  initLiveTime();
+  initProgress();
 
   await runLoader();
 
