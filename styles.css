@@ -397,17 +397,18 @@ img { max-width: 100%; display: block; }
 /* PORTRAIT — le sujet émerge du fond, fondus invisibles aux bords */
 .hero__portrait {
   position: absolute;
-  right: -3%;
+  right: -1%;
   top: 0;
   bottom: 0;
-  width: clamp(440px, 54vw, 820px);
+  width: clamp(300px, 36vw, 540px);
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
-  /* Masque elliptique anchored mid-right : le visage et le buste restent visibles,
-     les bords se fondent dans l'ink */
-  -webkit-mask-image: radial-gradient(ellipse 95% 115% at 70% 50%, #000 35%, transparent 88%);
-          mask-image: radial-gradient(ellipse 95% 115% at 70% 50%, #000 35%, transparent 88%);
+  opacity: 0.88;
+  /* Masque plus agressif : seul le visage est nettement visible,
+     tout le reste se fond progressivement dans l'ink */
+  -webkit-mask-image: radial-gradient(ellipse 80% 95% at 65% 42%, #000 8%, rgba(0,0,0,0.85) 22%, transparent 72%);
+          mask-image: radial-gradient(ellipse 80% 95% at 65% 42%, #000 8%, rgba(0,0,0,0.85) 22%, transparent 72%);
 }
 .hero__portraitImg {
   position: absolute;
@@ -415,19 +416,41 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 60% 28%; /* visage en haut, buste visible en bas */
+  object-position: 60% 32%; /* visage haut-centre, buste en bas */
   /* Traitement chromatique : très légère désat + warm shadow lift pour matcher la palette ink/champagne */
-  filter: grayscale(0.06) contrast(1.04) brightness(0.94) saturate(0.92) sepia(0.04);
+  filter: grayscale(0.06) contrast(1.04) brightness(0.92) saturate(0.88) sepia(0.05);
   will-change: transform, opacity;
 }
 
-@media (max-width: 900px) {
+/* Tablet (iPad portrait + landscape compact) */
+@media (max-width: 1100px) {
   .hero__portrait {
-    width: 78%;
-    right: -8%;
-    opacity: 0.42;
+    width: clamp(260px, 38vw, 460px);
+    right: -2%;
+    opacity: 0.78;
+    -webkit-mask-image: radial-gradient(ellipse 80% 90% at 60% 40%, #000 6%, rgba(0,0,0,0.7) 20%, transparent 68%);
+            mask-image: radial-gradient(ellipse 80% 90% at 60% 40%, #000 6%, rgba(0,0,0,0.7) 20%, transparent 68%);
   }
-  .hero__portraitImg { object-position: 60% 25%; }
+}
+
+/* Mobile — la photo passe vraiment en arrière-plan pour ne pas écraser le titre */
+@media (max-width: 720px) {
+  .hero__portrait {
+    width: 90%;
+    right: -8%;
+    top: auto;
+    bottom: 0;
+    height: 72%;
+    opacity: 0.32;
+    -webkit-mask-image: radial-gradient(ellipse 75% 90% at 55% 35%, #000 5%, transparent 70%);
+            mask-image: radial-gradient(ellipse 75% 90% at 55% 35%, #000 5%, transparent 70%);
+  }
+  .hero__portraitImg { object-position: 55% 28%; }
+}
+
+/* Très petits écrans — on garde une présence subtile */
+@media (max-width: 480px) {
+  .hero__portrait { opacity: 0.22; }
 }
 .hero__inner {
   position: relative;

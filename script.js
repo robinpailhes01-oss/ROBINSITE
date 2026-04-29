@@ -301,19 +301,7 @@ function initSectionFx() {
     );
   });
 
-  // Marquee speed reactive to scroll velocity
-  const tracks = document.querySelectorAll('.marquee__track');
-  tracks.forEach(track => {
-    let baseDur = parseFloat(getComputedStyle(track).animationDuration) || 30;
-    let v = 0;
-    let last = window.scrollY;
-    window.addEventListener('scroll', () => {
-      const cur = window.scrollY;
-      v = Math.min(2.6, Math.max(0.4, Math.abs(cur - last) / 14));
-      last = cur;
-      track.style.animationDuration = (baseDur / v) + 's';
-    }, { passive: true });
-  });
+  // Marquee : vitesse constante (pas de réactivité au scroll — feel plus calme & premium)
 }
 
 /* -----------------------------------------------------------
