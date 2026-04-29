@@ -47,12 +47,18 @@ function runLoader() {
 let lenis;
 function initLenis() {
   if (reducedMotion) return;
+  // Smooth scroll — easing exponentiel doux, durée légèrement plus longue
+  // pour un drift "studio" très fluide sans donner l'impression de lag.
   lenis = new Lenis({
-    duration: 1.15,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 1.55,
+    easing: (t) => 1 - Math.pow(1 - t, 4),
     smoothWheel: true,
     smoothTouch: false,
-    wheelMultiplier: 1,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1.6,
+    syncTouch: true,
+    syncTouchLerp: 0.085,
+    lerp: 0.085,
   });
   function raf(time) {
     lenis.raf(time);
@@ -73,7 +79,7 @@ function initLenis() {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -40, duration: 1.4 });
+      lenis.scrollTo(target, { offset: -40, duration: 1.8, easing: (t) => 1 - Math.pow(1 - t, 5) });
     });
   });
 }
@@ -231,25 +237,25 @@ function initThree() {
   );
   camera.position.set(0, 0, 6);
 
-  // Lights — chiaroscuro "studio" feel
-  const key = new THREE.DirectionalLight(0xfff2dc, 1.6);
+  // Lights — chiaroscuro "studio" feel, éclairage plus chaud et plus haut
+  const key = new THREE.DirectionalLight(0xfff0d6, 1.85);
   key.position.set(3, 4, 5);
   scene.add(key);
 
-  const rim = new THREE.DirectionalLight(0xd4b896, 1.2);
+  const rim = new THREE.DirectionalLight(0xe3c9a4, 1.5);
   rim.position.set(-4, -2, -3);
   scene.add(rim);
 
-  const fill = new THREE.AmbientLight(0x303030, 0.6);
+  const fill = new THREE.AmbientLight(0x4a4136, 0.85);
   scene.add(fill);
 
-  // Material — ink chrome with warm tint
+  // Material — warm ink chrome avec teinte champagne
   const material = new THREE.MeshPhysicalMaterial({
-    color: 0x0e0e0e,
-    metalness: 0.95,
-    roughness: 0.18,
+    color: 0x1f1d1a,
+    metalness: 0.92,
+    roughness: 0.22,
     clearcoat: 1.0,
-    clearcoatRoughness: 0.2,
+    clearcoatRoughness: 0.18,
     envMapIntensity: 1.0,
   });
 

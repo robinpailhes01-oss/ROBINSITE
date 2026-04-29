@@ -8,18 +8,18 @@ html { scroll-behavior: auto; } /* Lenis handles scroll */
 html, body { margin: 0; padding: 0; }
 
 :root {
-  --ink: #0a0a0a;
-  --ink-2: #131313;
-  --ink-3: #1a1a1a;
-  --paper: #f5f3ee;
-  --paper-2: #ebe7df;
-  --line: rgba(245,243,238,0.10);
-  --line-strong: rgba(245,243,238,0.22);
-  --text: #f5f3ee;
-  --dim: #8a8a85;
-  --muted: #5a5a55;
-  --champagne: #d4b896;
-  --champagne-2: #b89878;
+  --ink: #1c1a18;
+  --ink-2: #25221f;
+  --ink-3: #2e2a26;
+  --paper: #f7f3ea;
+  --paper-2: #ede8db;
+  --line: rgba(247,243,234,0.13);
+  --line-strong: rgba(247,243,234,0.28);
+  --text: #f8f4ea;
+  --dim: #b2ada1;
+  --muted: #7a7468;
+  --champagne: #e3c9a4;
+  --champagne-2: #c0a17a;
   --serif: 'Fraunces', 'Times New Roman', serif;
   --sans: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -230,12 +230,12 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
   padding: 28px var(--pad);
   font-size: 0.86rem;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.6), transparent);
+  background: linear-gradient(to bottom, rgba(28,26,24,0.6), transparent);
   backdrop-filter: blur(0px);
   transition: background .4s ease, backdrop-filter .4s ease, padding .4s ease;
 }
 .nav.is-scrolled {
-  background: rgba(10,10,10,0.78);
+  background: rgba(28,26,24,0.78);
   backdrop-filter: blur(12px);
   padding-top: 18px;
   padding-bottom: 18px;
@@ -469,8 +469,8 @@ img { max-width: 100%; display: block; }
   margin-top: 28px;
   aspect-ratio: 4/5;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(212,184,150,0.28), transparent 55%),
-    linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+    radial-gradient(ellipse at 30% 20%, rgba(227,201,164,0.32), transparent 55%),
+    linear-gradient(180deg, #2a2622 0%, #1a1816 100%);
   border: 1px solid var(--line);
   border-radius: 4px;
   position: relative;
@@ -621,10 +621,10 @@ img { max-width: 100%; display: block; }
 .gallery__stage {
   position: relative;
   aspect-ratio: 4/5;
-  background: var(--ink-2);
+  background: var(--ink-3);
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
 }
 .gallery__slide {
   position: absolute; inset: 0;
@@ -647,9 +647,9 @@ img { max-width: 100%; display: block; }
   font-family: var(--sans);
   font-size: 0.95rem;
   letter-spacing: 0.04em;
-  color: rgba(245,243,238,0.85);
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(245,243,238,0.18);
+  color: rgba(248,244,234,0.92);
+  background: rgba(0,0,0,0.32);
+  border: 1px solid rgba(248,244,234,0.22);
   padding: 12px 22px;
   border-radius: 999px;
   backdrop-filter: blur(6px);
