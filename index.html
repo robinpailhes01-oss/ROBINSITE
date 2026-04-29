@@ -109,21 +109,7 @@
        <img src="portrait.webp" alt="" class="hero__portraitImg" />
   -->
   <div class="hero__portrait" aria-hidden="true">
-    <div class="hero__portraitPlaceholder">
-      <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="silhouette" x1="0.5" y1="0" x2="0.5" y2="1">
-            <stop offset="0%" stop-color="#3a342c" stop-opacity="0.55"/>
-            <stop offset="55%" stop-color="#2a2520" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#1c1a18" stop-opacity="1"/>
-          </linearGradient>
-        </defs>
-        <!-- Silhouette épaules / buste / tête, stylisée -->
-        <path d="M200,90 C232,90 256,120 256,158 C256,188 240,212 220,224 L228,260 C262,272 288,290 308,318 C326,344 336,378 340,418 L340,600 L60,600 L60,418 C64,378 74,344 92,318 C112,290 138,272 172,260 L180,224 C160,212 144,188 144,158 C144,120 168,90 200,90 Z"
-              fill="url(#silhouette)"/>
-      </svg>
-      <span class="hero__portraitNote">Portrait à intégrer ici<br/><em>./portrait.webp</em></span>
-    </div>
+    <img src="portrait.jpg" alt="" class="hero__portraitImg" fetchpriority="high" />
   </div>
 
   <div class="hero__inner">
