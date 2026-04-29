@@ -1,6 +1,6 @@
 /* ===========================================================
    ROBIN STUDIO
-   Lenis smooth scroll · GSAP ScrollTrigger · Three.js hero
+   Lenis smooth scroll · GSAP ScrollTrigger · Portrait parallax
    =========================================================== */
 
 const isMobile = window.matchMedia('(max-width: 900px)').matches;
@@ -245,149 +245,42 @@ function initGallery() {
 }
 
 /* -----------------------------------------------------------
-   8. THREE.JS HERO SCENE
-   Une sphère "ink" avec subtle iridescence, lente, élégante
+   8. HERO PORTRAIT — parallax doux au scroll
+   Le sujet émerge du fond, légère translation vers le haut
    ----------------------------------------------------------- */
-function initThree() {
-  if (!window.THREE) return;
+function initPortrait() {
+  const portrait = document.querySelector('.hero__portrait');
+  if (!portrait || reducedMotion) return;
 
-  const canvas = document.getElementById('scene');
-  if (!canvas) return;
+  const inner = portrait.firstElementChild;
+  if (!inner) return;
 
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    alpha: true,
-    powerPreference: 'high-performance'
-  });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  let target = 0, current = 0, mouseX = 0, mouseY = 0, mx = 0, my = 0;
 
-  const scene = new THREE.Scene();
-
-  const camera = new THREE.PerspectiveCamera(
-    35,
-    canvas.clientWidth / canvas.clientHeight,
-    0.1,
-    100
-  );
-  camera.position.set(0, 0, 6);
-
-  // Lights — chiaroscuro "studio" feel, éclairage plus chaud et plus haut
-  const key = new THREE.DirectionalLight(0xfff0d6, 1.85);
-  key.position.set(3, 4, 5);
-  scene.add(key);
-
-  const rim = new THREE.DirectionalLight(0xe3c9a4, 1.5);
-  rim.position.set(-4, -2, -3);
-  scene.add(rim);
-
-  const fill = new THREE.AmbientLight(0x4a4136, 0.85);
-  scene.add(fill);
-
-  // Material — warm ink chrome avec teinte champagne
-  const material = new THREE.MeshPhysicalMaterial({
-    color: 0x1f1d1a,
-    metalness: 0.92,
-    roughness: 0.22,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.18,
-    envMapIntensity: 1.0,
-  });
-
-  // High-poly icosahedron for smooth deformation
-  const geometry = new THREE.IcosahedronGeometry(1.45, 64);
-  const positionAttr = geometry.attributes.position;
-  const basePositions = new Float32Array(positionAttr.array);
-
-  const mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
-
-  // Simple noise-ish vertex displacement
-  function pseudoNoise(x, y, z, t) {
-    return (
-      Math.sin(x * 1.3 + t * 0.6) * 0.18 +
-      Math.cos(y * 1.6 - t * 0.7) * 0.16 +
-      Math.sin(z * 1.1 + t * 0.5) * 0.14 +
-      Math.sin((x + y + z) * 0.8 + t * 0.4) * 0.10
-    );
-  }
-
-  let mouseX = 0, mouseY = 0;
-  let targetX = 0, targetY = 0;
-  window.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-  });
-
-  function resize() {
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight;
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h, false);
-  }
-  window.addEventListener('resize', resize);
-
-  let scrollProgress = 0;
-  // Source de vérité : scroll natif (fonctionne même si ScrollTrigger pas chargé)
-  function syncScroll() {
+  window.addEventListener('scroll', () => {
     const heroH = document.querySelector('.hero')?.offsetHeight || window.innerHeight;
-    scrollProgress = Math.min(1, Math.max(0, window.scrollY / heroH));
-  }
-  window.addEventListener('scroll', syncScroll, { passive: true });
-  syncScroll();
+    const p = Math.min(1, Math.max(0, window.scrollY / heroH));
+    target = p;
+    portrait.style.opacity = Math.max(0, 1 - p * 1.4);
+  }, { passive: true });
 
-  const clock = new THREE.Clock();
-  function tick() {
-    const t = clock.getElapsedTime();
-
-    // Vertex displacement — keeps the sphere "alive"
-    const arr = positionAttr.array;
-    const amp = 0.08 + 0.04 * Math.sin(t * 0.4);
-    for (let i = 0; i < arr.length; i += 3) {
-      const ox = basePositions[i];
-      const oy = basePositions[i + 1];
-      const oz = basePositions[i + 2];
-      const len = Math.sqrt(ox * ox + oy * oy + oz * oz);
-      const nx = ox / len, ny = oy / len, nz = oz / len;
-      const d = pseudoNoise(ox, oy, oz, t) * amp;
-      arr[i]     = ox + nx * d;
-      arr[i + 1] = oy + ny * d;
-      arr[i + 2] = oz + nz * d;
-    }
-    positionAttr.needsUpdate = true;
-    geometry.computeVertexNormals();
-
-    // Smooth rotation + subtle mouse parallax
-    targetX += (mouseX - targetX) * 0.04;
-    targetY += (mouseY - targetY) * 0.04;
-    mesh.rotation.y = t * 0.12 + targetX * 0.4;
-    mesh.rotation.x = Math.sin(t * 0.08) * 0.15 + targetY * 0.25;
-
-    // Camera & mesh — légèrement plus haut, scale décroissant au scroll
-    camera.position.z = 6.5 + scrollProgress * 1.5;
-    mesh.position.x = 1.8;
-    mesh.position.y = 0.2 - scrollProgress * 0.6;
-    const scale = 1.0 - scrollProgress * 0.35;
-    mesh.scale.setScalar(scale);
-    camera.lookAt(mesh.position.x * 0.55, 0, 0);
-
-    // Fade le canvas au scroll pour qu'il disparaisse avant la section suivante
-    canvas.style.opacity = Math.max(0, 1 - scrollProgress * 1.6);
-
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
+  if (!isTouch) {
+    window.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
   }
 
-  // Initial sizing
-  requestAnimationFrame(() => {
-    resize();
-    tick();
-  });
+  function loop() {
+    current += (target - current) * 0.08;
+    mx += (mouseX - mx) * 0.05;
+    my += (mouseY - my) * 0.05;
+    const ty = current * -60 + my * -8;
+    const tx = mx * -10;
+    inner.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${1.04 - current * 0.04})`;
+    requestAnimationFrame(loop);
+  }
+  loop();
 }
 
 /* -----------------------------------------------------------
@@ -442,7 +335,7 @@ async function boot() {
   initReveals();
   initHeroTitle();
   initGallery();
-  initThree();
+  initPortrait();
   initSectionFx();
 
   // Refresh scrolltriggers after everything settles
