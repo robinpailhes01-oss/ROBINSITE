@@ -8,7 +8,9 @@ const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.getElementById('year').textContent = new Date().getFullYear();
-document.body.classList.add('is-loading');
+if (document.querySelector('.loader')) {
+  document.body.classList.add('is-loading');
+}
 
 /* -----------------------------------------------------------
    0. LIVE TIME (Europe/Paris)
@@ -51,6 +53,10 @@ const loaderNum = document.querySelector('.loader__num');
 
 function runLoader() {
   return new Promise(resolve => {
+    if (!loader || !loaderBar || !loaderNum) {
+      resolve();
+      return;
+    }
     requestAnimationFrame(() => {
       loaderBar.style.width = '100%';
     });

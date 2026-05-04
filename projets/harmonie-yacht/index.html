@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1c1a18" />
+<meta name="color-scheme" content="dark" />
+
+<title>Harmonie Yacht — Infrastructure IA · Robin Pailhes</title>
+<meta name="description" content="Conception et déploiement d'une infrastructure IA pour Harmonie Yacht (Carnon, Montpellier) : Léa, agent IA multi-canal, lead scoring, facturation automatique." />
+<link rel="canonical" href="https://robinpailhes.fr/projets/harmonie-yacht/" />
+
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Harmonie Yacht — Infrastructure IA" />
+<meta property="og:description" content="Comment j'ai construit Léa, l'agent IA multi-canal qui gère les réservations d'Harmonie Yacht 24/7." />
+<meta property="og:url" content="https://robinpailhes.fr/projets/harmonie-yacht/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harmonie Yacht — Infrastructure IA" />
+<meta name="twitter:description" content="Léa, l'agent IA multi-canal qui gère plusieurs centaines de demandes par jour." />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c1a18'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e3c9a4'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+
+<a class="skip" href="#case-top">Aller au contenu</a>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="/" class="nav__logo" data-cursor="link" aria-label="Retour à l'accueil — Robin Pailhes">
+    <span class="nav__mark">●</span>
+    <span>Robin Pailhes</span>
+    <span class="nav__suffix">— Studio</span>
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a href="/#ethos" data-cursor="link"><span>01</span> Ethos</a>
+    <a href="/#capabilities" data-cursor="link"><span>02</span> Capacités</a>
+    <a href="/#work" data-cursor="link"><span>03</span> Projets</a>
+    <a href="/#voices" data-cursor="link"><span>04</span> Voix</a>
+  </nav>
+  <div class="nav__right">
+    <span class="nav__time" aria-live="off"><span class="nav__timeDot"></span><span id="navTime">— : —</span> · Montpellier</span>
+    <a href="/#contact" class="nav__cta" data-cursor="link">
+      <span>Contact</span>
+      <span class="nav__arrow">→</span>
+    </a>
+  </div>
+</header>
+
+<main id="case-top">
+
+<!-- CASE HERO -->
+<section class="case__hero">
+  <div class="case__heroBg">
+    <!-- Quand tu auras la photo : remplace cette div par <img src="../../assets/hy-yacht-hero.jpg" alt="" /> -->
+    <div class="case__heroPlaceholder">
+      <span class="case__heroPlaceholderLabel">[ Photo yacht en mer · 2400×1600 ]</span>
+    </div>
+  </div>
+
+  <div class="container case__heroInner">
+    <a href="/#work" class="case__back" data-cursor="link">← Retour aux projets</a>
+
+    <div class="case__heroMeta">
+      <span class="overline">Projets / 01</span>
+      <span class="overline">Carnon · Montpellier · 2025</span>
+    </div>
+
+    <h1 class="case__title">
+      <span>Harmonie</span>
+      <span><em>Yacht.</em></span>
+    </h1>
+
+    <p class="case__heroLede">
+      Location de yachts &amp; nuits insolites en mer.<br/>
+      Infrastructure IA — Léa, l'agent multi-canal.
+    </p>
+
+    <ul class="case__heroSpecs">
+      <li><span>Rôle</span><strong>Conception &amp; déploiement</strong></li>
+      <li><span>Année</span><strong>2025</strong></li>
+      <li><span>Stack</span><strong>n8n · OpenAI · Stripe · WhatsApp Business</strong></li>
+      <li><span>Statut</span><strong>En production</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="case__section">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— L'objet</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Un seul homme. Trois canaux.<br/>
+        <em>Plusieurs centaines</em> de messages par jour.
+      </h2>
+      <p class="lede js-reveal">
+        Harmonie Yacht, c'est mon entreprise de location de yachts à <strong>Carnon</strong>, près de Montpellier.
+        Sorties en mer et nuits insolites — un produit où chaque demande compte, où une réponse en retard est une vente perdue.
+      </p>
+      <p class="lede js-reveal">
+        En haute saison, j'étais seul à gérer Instagram, WhatsApp et mail simultanément.
+        À organiser les sorties. À facturer. À publier sur les réseaux. À répondre, qualifier, relancer chaque prospect.
+      </p>
+      <p class="lede js-reveal">
+        Il fallait sortir de cette logique artisanale.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DÉFI -->
+<section class="case__section case__section--bordered">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— Le défi</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Trois fronts à tenir <em>en même temps.</em>
+      </h2>
+      <ol class="case__challenges">
+        <li class="js-reveal">
+          <span class="case__challengeNum">i.</span>
+          <div>
+            <h3>Répondre instantanément, 24/7, sur 3 canaux</h3>
+            <p>Trois fenêtres de chat en parallèle. Une attention humaine impossible à scaler en pleine saison.</p>
+          </div>
+        </li>
+        <li class="js-reveal">
+          <span class="case__challengeNum">ii.</span>
+          <div>
+            <h3>Qualifier chaque lead, pas juste répondre</h3>
+            <p>Tous les messages ne se valent pas. Il faut un vrai scoring pour prioriser les vrais prospects.</p>
+          </div>
+        </li>
+        <li class="js-reveal">
+          <span class="case__challengeNum">iii.</span>
+          <div>
+            <h3>Automatiser tout l'administratif</h3>
+            <p>Facturation, confirmations, relances — sans intervention manuelle, sans oubli, sans copier-coller.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- LÉA -->
+<section class="case__section">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— La solution</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display display--lg js-reveal">
+        J'ai construit <em>Léa.</em>
+      </h2>
+      <p class="lede js-reveal">
+        Léa, c'est l'agent IA qui répond à ma place sur Instagram, WhatsApp et email.
+        Elle reconnaît le canal, comprend la demande, pose les bonnes questions,
+        et qualifie le lead avant de me transférer un dossier prêt à signer.
+      </p>
+
+      <div class="case__pillars">
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">01</span>
+          <h4>Réponse multi-canal</h4>
+          <p>Léa parle Instagram&nbsp;DM, WhatsApp Business et email. Le ton s'adapte au canal — direct sur Insta, plus posé en mail.</p>
+        </article>
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">02</span>
+          <h4>Lead scoring</h4>
+          <p>Chaque conversation est analysée selon des critères : date souhaitée, taille du groupe, prestation, urgence, signaux d'engagement. Score de&nbsp;1 à&nbsp;5.</p>
+        </article>
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">03</span>
+          <h4>Calendrier &amp; relances</h4>
+          <p>Chaque lead scoré atterrit sur un calendrier centralisé. Vue d'ensemble des prospects à venir, relances automatiques sur les leads chauds.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / VISUELS -->
+<section class="case__section case__section--bordered">
+  <div class="container">
+    <div class="case__galleryHead">
+      <span class="section__index">— Le système, en images</span>
+      <h2 class="display js-reveal">Léa, en <em>action.</em></h2>
+    </div>
+
+    <div class="case__gallery">
+      <figure class="case__media case__media--lg">
+        <div class="case__placeholder" data-tone="green">
+          <span class="case__placeholderLabel">Capture WhatsApp · Léa qualifie un lead</span>
+          <span class="case__placeholderHint">À remplacer par hy-lea-whatsapp.png</span>
+        </div>
+        <figcaption>Léa répond, pose les bonnes questions, et confirme la disponibilité — en moins de deux minutes.</figcaption>
+      </figure>
+
+      <figure class="case__media">
+        <div class="case__placeholder" data-tone="purple">
+          <span class="case__placeholderLabel">Capture Instagram DM</span>
+          <span class="case__placeholderHint">hy-lea-instagram.png</span>
+        </div>
+        <figcaption>Le ton s'adapte au canal — direct, court, naturel.</figcaption>
+      </figure>
+
+      <figure class="case__media">
+        <div class="case__placeholder" data-tone="blue">
+          <span class="case__placeholderLabel">Capture email</span>
+          <span class="case__placeholderHint">hy-lea-email.png</span>
+        </div>
+        <figcaption>En mail, Léa structure et signe avec professionnalisme.</figcaption>
+      </figure>
+
+      <figure class="case__media case__media--lg">
+        <div class="case__placeholder" data-tone="amber">
+          <span class="case__placeholderLabel">Calendrier des leads scorés</span>
+          <span class="case__placeholderHint">hy-calendrier.png</span>
+        </div>
+        <figcaption>La vue d'ensemble des prospects à venir, scoring en couleur, prochaine relance prévue.</figcaption>
+      </figure>
+
+      <figure class="case__media">
+        <div class="case__placeholder" data-tone="rose">
+          <span class="case__placeholderLabel">Facture auto-générée</span>
+          <span class="case__placeholderHint">hy-facture.png</span>
+        </div>
+        <figcaption>Stripe émet la facture dès la confirmation. Aucune intervention.</figcaption>
+      </figure>
+
+      <figure class="case__media">
+        <div class="case__placeholder" data-tone="ink">
+          <span class="case__placeholderLabel">Schéma de l'infrastructure</span>
+          <span class="case__placeholderHint">À créer ensemble — n8n + OpenAI + WA Business + Stripe</span>
+        </div>
+        <figcaption>L'architecture complète — chaque brique, chaque flux.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="case__section">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— Les chiffres</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Ce qui a <em>vraiment changé.</em>
+      </h2>
+      <div class="case__metrics">
+        <div class="case__metric js-reveal">
+          <span class="case__metricNum">~XXX</span>
+          <span class="case__metricLabel">Messages traités auto<br/>par jour en saison</span>
+        </div>
+        <div class="case__metric js-reveal">
+          <span class="case__metricNum">&lt; 2 min</span>
+          <span class="case__metricLabel">Temps de réponse<br/>moyen</span>
+        </div>
+        <div class="case__metric js-reveal">
+          <span class="case__metricNum">XX h</span>
+          <span class="case__metricLabel">Heures gagnées<br/>par semaine</span>
+        </div>
+        <div class="case__metric js-reveal">
+          <span class="case__metricNum">+XX %</span>
+          <span class="case__metricLabel">Taux de conversion<br/>vs avant</span>
+        </div>
+      </div>
+      <p class="case__metricNote">Chiffres à finaliser ensemble — placeholders prêts à être remplis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="case__section case__section--bordered">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— La stack</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Outils <em>choisis</em>, pas accumulés.
+      </h2>
+      <div class="case__stack">
+        <div class="case__stackCol js-reveal">
+          <h4>Conversation &amp; agent</h4>
+          <ul>
+            <li>OpenAI / Claude</li>
+            <li>WhatsApp Business API</li>
+            <li>Instagram Graph API</li>
+            <li>Gmail API</li>
+          </ul>
+        </div>
+        <div class="case__stackCol js-reveal">
+          <h4>Orchestration</h4>
+          <ul>
+            <li>n8n (workflows)</li>
+            <li>Webhooks &amp; triggers</li>
+            <li>Notion (calendrier &amp; CRM léger)</li>
+          </ul>
+        </div>
+        <div class="case__stackCol js-reveal">
+          <h4>Paiement &amp; admin</h4>
+          <ul>
+            <li>Stripe (factures &amp; paiement)</li>
+            <li>Templates auto (mail confirmation)</li>
+            <li>Logs &amp; monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="case__closing">
+  <div class="container">
+    <p class="case__closingText js-reveal">
+      Aujourd'hui, Léa traite l'écrasante majorité des demandes.<br/>
+      Je récupère du temps pour ce qui compte&nbsp;: <em>les sorties, les clients, le contenu.</em>
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="contact">
+  <div class="container contact__inner">
+    <span class="section__index section__index--light">— Travailler ensemble</span>
+    <h2 class="display display--xl js-reveal">
+      Un projet <em>similaire&nbsp;?</em>
+    </h2>
+
+    <a href="mailto:contact@robinpailhes.fr?subject=Projet%20infra%20IA" class="contact__email" data-cursor="link">
+      <span>contact@robinpailhes.fr</span>
+      <span class="contact__arrow">→</span>
+    </a>
+
+    <div class="contact__meta">
+      <div>
+        <span class="contact__label">Réponse</span>
+        <span class="contact__val">Sous 24h ouvrées</span>
+      </div>
+      <div>
+        <span class="contact__label">Premier appel</span>
+        <span class="contact__val">Offert · 30 min</span>
+      </div>
+      <div>
+        <span class="contact__label">Localisation</span>
+        <span class="contact__val">Montpellier · Remote monde</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="case__next">
+  <div class="container case__nextInner">
+    <a href="/#work" class="case__nextLink case__nextLink--prev" data-cursor="link">
+      <span class="case__nextLabel">← Tous les projets</span>
+    </a>
+    <a href="#" class="case__nextLink case__nextLink--disabled" aria-disabled="true">
+      <span class="case__nextLabel">Projet suivant</span>
+      <span class="case__nextTitle">Ankora <em>— bientôt en ligne</em></span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__marquee" aria-hidden="true">
+    <div class="marquee__track marquee__track--lg">
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© <span id="year"></span> Robin Pailhes</span>
+    <span class="footer__links">
+      <a href="https://www.linkedin.com/" data-cursor="link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/" data-cursor="link" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://x.com/" data-cursor="link" target="_blank" rel="noopener">X</a>
+    </span>
+    <span class="footer__made">Conçu &amp; développé à Montpellier</span>
+  </div>
+</footer>
+
+<script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script defer src="../../script.js"></script>
+</body>
+</html>
