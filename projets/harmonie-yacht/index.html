@@ -233,9 +233,99 @@
       </figure>
 
       <figure class="case__media case__media--lg">
-        <div class="case__placeholder" data-tone="ink">
-          <span class="case__placeholderLabel">Schéma de la stack complète</span>
-          <span class="case__placeholderHint">hy-stack.png</span>
+        <div class="case__schema" role="img" aria-label="Schéma de l'architecture Harmonie Yacht">
+          <svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <pattern id="schemaGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(247,243,234,0.05)" stroke-width="1"/>
+              </pattern>
+              <linearGradient id="leaBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(227,201,164,0.14)"/>
+                <stop offset="100%" stop-color="rgba(227,201,164,0.04)"/>
+              </linearGradient>
+            </defs>
+
+            <rect width="1600" height="1000" fill="#1a1816"/>
+            <rect width="1600" height="1000" fill="url(#schemaGrid)"/>
+
+            <!-- Title -->
+            <text x="80" y="80" font-family="Inter, sans-serif" font-size="13" letter-spacing="3.5" fill="#7a7468">— ARCHITECTURE</text>
+            <text x="80" y="135" font-family="Fraunces, serif" font-weight="300" font-style="italic" font-size="44" fill="#f7f3ea">Le système, en blocs.</text>
+
+            <!-- Tier 1 label -->
+            <text x="80" y="220" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="#e3c9a4">01 — ENTRÉES</text>
+
+            <!-- Tier 1: Inputs -->
+            <g>
+              <rect x="180" y="250" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="340" y="298" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Instagram</text>
+              <text x="340" y="328" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">DM &amp; COMMENTAIRES</text>
+
+              <rect x="640" y="250" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="800" y="298" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">WhatsApp</text>
+              <text x="800" y="328" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">BUSINESS API</text>
+
+              <rect x="1100" y="250" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="1260" y="298" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Email</text>
+              <text x="1260" y="328" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">GMAIL API</text>
+            </g>
+
+            <!-- Connections inputs → Léa -->
+            <g stroke="rgba(247,243,234,0.28)" stroke-width="1.2" fill="none">
+              <path d="M340 360 L340 410 L800 410"/>
+              <path d="M800 360 L800 460"/>
+              <path d="M1260 360 L1260 410 L800 410"/>
+              <circle cx="800" cy="460" r="3" fill="#e3c9a4"/>
+            </g>
+
+            <!-- Tier 2 label -->
+            <text x="80" y="495" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="#e3c9a4">02 — AGENT IA</text>
+
+            <!-- Tier 2: Léa -->
+            <g>
+              <rect x="540" y="470" width="520" height="140" rx="4" fill="url(#leaBg)" stroke="rgba(227,201,164,0.45)" stroke-width="1.4"/>
+              <text x="800" y="530" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="400" font-size="48" fill="#f7f3ea">Léa</text>
+              <text x="800" y="563" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" letter-spacing="2" fill="#e3c9a4">OPENAI · CLAUDE</text>
+              <text x="800" y="585" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="2" fill="#7a7468">RÉPOND · QUALIFIE · SCORE</text>
+            </g>
+
+            <line x1="800" y1="610" x2="800" y2="660" stroke="rgba(247,243,234,0.28)" stroke-width="1.2"/>
+
+            <!-- Tier 3 label -->
+            <text x="80" y="685" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="#e3c9a4">03 — ORCHESTRATION</text>
+
+            <!-- Tier 3: n8n -->
+            <g>
+              <rect x="640" y="660" width="320" height="100" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="800" y="708" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">n8n</text>
+              <text x="800" y="736" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">WORKFLOWS &amp; TRIGGERS</text>
+            </g>
+
+            <!-- Connections n8n → outputs -->
+            <g stroke="rgba(247,243,234,0.28)" stroke-width="1.2" fill="none">
+              <path d="M800 760 L800 810 L340 810 L340 850"/>
+              <path d="M800 760 L800 850"/>
+              <path d="M800 760 L800 810 L1260 810 L1260 850"/>
+            </g>
+
+            <!-- Tier 4 label -->
+            <text x="80" y="885" font-family="Inter, sans-serif" font-size="11" letter-spacing="3" fill="#e3c9a4">04 — SORTIES</text>
+
+            <!-- Tier 4: Outputs -->
+            <g>
+              <rect x="180" y="850" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="340" y="898" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Notion</text>
+              <text x="340" y="928" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">CALENDRIER &amp; CRM</text>
+
+              <rect x="640" y="850" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="800" y="898" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Stripe</text>
+              <text x="800" y="928" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">FACTURES AUTO</text>
+
+              <rect x="1100" y="850" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
+              <text x="1260" y="898" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Drive</text>
+              <text x="1260" y="928" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">STOCKAGE</text>
+            </g>
+          </svg>
         </div>
         <figcaption>L'architecture complète — chaque brique, chaque flux, de la demande à la facture.</figcaption>
       </figure>
