@@ -1090,10 +1090,21 @@ img { max-width: 100%; display: block; }
 }
 .case__heroBg > img,
 .case__heroBg > .case__heroPlaceholder {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.case__heroImg {
+  z-index: 1;
+  /* Cadrage pour photo verticale avec yacht à droite : on garde la zone yacht + une belle part de ciel */
+  object-position: 70% 45%;
+  /* Légère désat des bleus pour matcher la palette ink + warm */
+  filter: saturate(0.92) contrast(1.04);
+}
+.case__heroBg > .case__heroPlaceholder { z-index: 0; }
+.case__heroBg::after { z-index: 2; }
 .case__heroBg::after {
   content: "";
   position: absolute;
