@@ -1388,6 +1388,62 @@ img { max-width: 100%; display: block; }
   .case__schema { aspect-ratio: 4/3; }
 }
 
+/* CTA dans le hero du case study — bouton "Visiter le site" */
+.case__heroCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 26px;
+  border: 1px solid var(--champagne);
+  background: rgba(227,201,164,0.08);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  width: max-content;
+  max-width: 100%;
+  align-self: start;
+  transition: background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease;
+}
+.case__heroCta:hover {
+  background: var(--champagne);
+  color: var(--ink);
+  border-color: var(--champagne);
+  transform: translateY(-2px);
+}
+.case__heroCta:hover .case__heroCtaArrow {
+  transform: translate(4px, -4px);
+}
+.case__heroCtaArrow {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 1.1em;
+  transition: transform .35s cubic-bezier(.7,0,.2,1);
+}
+
+/* Lien cliquable dans les specs (ex: domaine) */
+.case__specLink {
+  color: var(--champagne) !important;
+  border-bottom: 1px solid rgba(227,201,164,0.35);
+  padding-bottom: 1px;
+  transition: color .25s ease, border-color .25s ease;
+}
+.case__specLink:hover {
+  color: var(--text) !important;
+  border-color: var(--text);
+}
+
+@media (max-width: 720px) {
+  .case__heroCta {
+    padding: 12px 20px;
+    font-size: 0.86rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Hero SaaS typographique (Ankora) — pas de photo, signal radial décoratif */
 .case__hero--saas {
   background:
