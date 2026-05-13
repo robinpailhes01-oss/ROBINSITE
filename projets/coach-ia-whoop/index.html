@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1c1a18" />
+<meta name="color-scheme" content="dark" />
+
+<title>Coach IA &amp; Whoop — Infrastructure biométrique · Robin Pailhes</title>
+<meta name="description" content="Un coach IA personnel sport & nutrition, connecté en direct aux données de la montre Whoop. Briefings quotidiens, programme adaptatif, app personnelle." />
+<link rel="canonical" href="https://robinpailhes.fr/projets/coach-ia-whoop/" />
+
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Coach IA &amp; Whoop — Infrastructure biométrique" />
+<meta property="og:description" content="Transformer les données Whoop en décisions concrètes : entraînement, nutrition, récupération. Avec mémoire continue." />
+<meta property="og:url" content="https://robinpailhes.fr/projets/coach-ia-whoop/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Coach IA &amp; Whoop — Infrastructure biométrique" />
+<meta name="twitter:description" content="Le coach personnel branché sur votre biométrie." />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c1a18'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e3c9a4'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+
+<a class="skip" href="#case-top">Aller au contenu</a>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="/" class="nav__logo" data-cursor="link" aria-label="Retour à l'accueil — Robin Pailhes">
+    <span class="nav__mark">●</span>
+    <span>Robin Pailhes</span>
+    <span class="nav__suffix">— Studio</span>
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a href="/#ethos" data-cursor="link"><span>01</span> Ethos</a>
+    <a href="/#capabilities" data-cursor="link"><span>02</span> Capacités</a>
+    <a href="/#work" data-cursor="link"><span>03</span> Projets</a>
+    <a href="/#voices" data-cursor="link"><span>04</span> Voix</a>
+  </nav>
+  <div class="nav__right">
+    <span class="nav__time" aria-live="off"><span class="nav__timeDot"></span><span id="navTime">— : —</span> · Montpellier</span>
+    <a href="/#contact" class="nav__cta" data-cursor="link">
+      <span>Contact</span>
+      <span class="nav__arrow">→</span>
+    </a>
+  </div>
+</header>
+
+<main id="case-top">
+
+<!-- CASE HERO — anneau récup Whoop en décoration -->
+<section class="case__hero case__hero--saas">
+  <div class="case__heroBg case__heroBg--saas">
+    <div class="case__heroDecor" aria-hidden="true">
+      <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <radialGradient id="whoopGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="rgba(227,201,164,0.18)"/>
+            <stop offset="100%" stop-color="rgba(227,201,164,0)"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Glow douce -->
+        <circle cx="450" cy="420" r="320" fill="url(#whoopGlow)"/>
+
+        <!-- Anneau de fond -->
+        <circle cx="450" cy="420" r="260" fill="none" stroke="rgba(247,243,234,0.08)" stroke-width="28"/>
+
+        <!-- Anneau progrès (82%) -->
+        <circle cx="450" cy="420" r="260"
+                fill="none"
+                stroke="rgba(227,201,164,0.75)"
+                stroke-width="28"
+                stroke-dasharray="1340 1634"
+                stroke-linecap="round"
+                transform="rotate(-90 450 420)"/>
+
+        <!-- Score central -->
+        <text x="450" y="445" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="180" fill="#f7f3ea">82</text>
+
+        <!-- Label -->
+        <text x="450" y="510" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" letter-spacing="5" fill="rgba(247,243,234,0.45)">RÉCUPÉRATION</text>
+
+        <!-- Sub-label : ECG mini-line -->
+        <path d="M 290 720 L 380 720 L 410 695 L 435 745 L 465 685 L 495 755 L 525 720 L 610 720"
+              fill="none"
+              stroke="rgba(227,201,164,0.55)"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+        <text x="450" y="765" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" letter-spacing="4" fill="rgba(247,243,234,0.35)">HRV · STRAIN · SLEEP</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container case__heroInner">
+    <a href="/#work" class="case__back" data-cursor="link">← Retour aux projets</a>
+
+    <div class="case__heroMeta">
+      <span class="overline">Projets / 03</span>
+      <span class="overline">Sport · Nutrition · Biométrie · 2025</span>
+    </div>
+
+    <h1 class="case__title">
+      <span>Coach IA</span>
+      <span><em>&amp; Whoop.</em></span>
+    </h1>
+
+    <p class="case__heroLede">
+      L'optimisation continue, alimentée par la biométrie.<br/>
+      Un coach personnel branché en direct à votre poignet.
+    </p>
+
+    <ul class="case__heroSpecs">
+      <li><span>Rôle</span><strong>Conception &amp; déploiement</strong></li>
+      <li><span>Année</span><strong>2025</strong></li>
+      <li><span>Stack</span><strong>Whoop API · OpenAI · App mobile</strong></li>
+      <li><span>Statut</span><strong>Terminé</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- L'OBJET -->
+<section class="case__section">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— L'objet</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        La donnée brute ne change rien.<br/>
+        <em>Seule l'action compte.</em>
+      </h2>
+      <p class="lede js-reveal">
+        Une Whoop génère <strong>24h/24</strong> des données extrêmement précises : sommeil, fréquence
+        cardiaque, variabilité (HRV), strain, récupération, stress. La plupart des porteurs lisent leur
+        score le matin, et c'est tout. <em>Les données restent données. Les actions, elles, restent à l'aveugle.</em>
+      </p>
+      <p class="lede js-reveal">
+        Quand on cherche vraiment à progresser — physique, mental, santé — il faut un interlocuteur qui
+        croise ces données avec votre quotidien, votre alimentation, votre entraînement.
+        Un coach humain à temps plein, ça coûte cher et ce n'est jamais disponible à 5h du matin.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LE DÉFI -->
+<section class="case__section case__section--bordered">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— Le défi</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Transformer la <em>donnée</em><br/>en décision concrète.
+      </h2>
+      <ol class="case__challenges">
+        <li class="js-reveal">
+          <span class="case__challengeNum">i.</span>
+          <div>
+            <h3>Lire un score ne suffit pas</h3>
+            <p>« Récup : 82 ». Et après ? Faut-il s'entraîner plus dur, lever du lourd, dormir 30 min de plus ? La donnée seule ne donne aucune réponse.</p>
+          </div>
+        </li>
+        <li class="js-reveal">
+          <span class="case__challengeNum">ii.</span>
+          <div>
+            <h3>Un coach humain à temps plein, c'est inaccessible</h3>
+            <p>Disponibilité, coût, latence : impossible d'avoir une vraie réponse personnalisée à chaque moment-clé de la journée.</p>
+          </div>
+        </li>
+        <li class="js-reveal">
+          <span class="case__challengeNum">iii.</span>
+          <div>
+            <h3>Sans mémoire, pas de conseil sur-mesure</h3>
+            <p>Un coach utile, c'est un coach qui vous connaît. Vos habitudes, vos contraintes, ce qui marche pour vous, ce qui ne marche pas.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- LA SOLUTION -->
+<section class="case__section">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— La solution</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display display--lg js-reveal">
+        Un coach IA branché<br/>en direct à la <em>Whoop.</em>
+      </h2>
+      <p class="lede js-reveal">
+        Sport, nutrition, récupération — un seul interlocuteur, disponible 24/7, qui consulte vos
+        données en temps réel et apprend de vous chaque jour.
+      </p>
+
+      <div class="case__pillars">
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">01 — DONNÉES</span>
+          <h4>Connecté à l'API Whoop</h4>
+          <p>Accès complet aux métriques : sommeil détaillé, HRV, strain quotidien, récupération, stress, fréquence au repos. Le coach IA lit la donnée fraîche à chaque conversation.</p>
+        </article>
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">02 — COACHING</span>
+          <h4>Briefings matin &amp; soir</h4>
+          <p>Au réveil : analyse de la nuit, recommandation d'entraînement, plan nutrition. Le soir : debrief de la journée, ajustements pour demain. Discussion libre 24/7 entre les deux.</p>
+        </article>
+        <article class="case__pillar js-reveal">
+          <span class="case__pillarNum">03 — MÉMOIRE</span>
+          <h4>Apprentissage continu</h4>
+          <p>Au fil des semaines, l'IA apprend vos habitudes, vos préférences, vos contraintes. Vos blessures, vos goûts, vos objectifs. Le conseil devient véritablement sur-mesure.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- L'APP PERSONNELLE -->
+<section class="case__section case__section--bordered">
+  <div class="container case__grid">
+    <div class="case__sticky">
+      <span class="section__index">— L'app personnelle</span>
+    </div>
+    <div class="case__content">
+      <h2 class="display js-reveal">
+        Une app dédiée<br/>au <em>suivi long-terme.</em>
+      </h2>
+      <p class="lede js-reveal">
+        En plus du coach IA, une application mobile pensée pour vivre avec l'utilisateur sur la durée :
+        photos d'évolution corporelle, programme d'entraînement adaptatif, journal des progrès.
+      </p>
+      <ul class="case__features">
+        <li class="js-reveal">
+          <strong>Photos d'évolution</strong>
+          <span>Suivi visuel de la croissance corporelle, semaine après semaine. Comparatif intégré.</span>
+        </li>
+        <li class="js-reveal">
+          <strong>Programme adaptatif</strong>
+          <span>Le programme d'entraînement s'ajuste automatiquement aux charges selon le niveau de fatigue détecté par la Whoop.</span>
+        </li>
+        <li class="js-reveal">
+          <strong>Journal personnalisé</strong>
+          <span>Notes, ressentis, photos, progressions. Tout est centralisé dans un seul espace privé.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="case__section">
+  <div class="container">
+    <div class="case__galleryHead">
+      <span class="section__index">— Le système, en images</span>
+      <h2 class="display js-reveal">Les briefings &amp; l'<em>app.</em></h2>
+    </div>
+
+    <div class="case__gallery">
+      <figure class="case__media">
+        <img src="/coach-briefing-matin.png"
+             alt="Briefing matin du coach IA"
+             loading="lazy"
+             onerror="this.remove()" />
+        <div class="case__placeholder" data-tone="amber">
+          <span class="case__placeholderLabel">Briefing matin</span>
+          <span class="case__placeholderHint">À uploader : coach-briefing-matin.png</span>
+        </div>
+        <figcaption>Au réveil — synthèse de la nuit, recommandation d'entraînement, plan nutrition.</figcaption>
+      </figure>
+
+      <figure class="case__media">
+        <img src="/coach-briefing-soir.png"
+             alt="Briefing soir du coach IA"
+             loading="lazy"
+             onerror="this.remove()" />
+        <div class="case__placeholder" data-tone="purple">
+          <span class="case__placeholderLabel">Briefing soir</span>
+          <span class="case__placeholderHint">À uploader : coach-briefing-soir.png</span>
+        </div>
+        <figcaption>Le soir — debrief de la journée, ajustements pour demain.</figcaption>
+      </figure>
+
+      <figure class="case__media case__media--lg">
+        <img src="/coach-app-suivi.png"
+             alt="App personnelle — suivi corporel et programme"
+             loading="lazy"
+             onerror="this.remove()" />
+        <div class="case__placeholder" data-tone="rose">
+          <span class="case__placeholderLabel">App personnelle · suivi corporel</span>
+          <span class="case__placeholderHint">À uploader : coach-app-suivi.png</span>
+        </div>
+        <figcaption>L'application mobile — photos d'évolution, journal personnalisé, espace privé.</figcaption>
+      </figure>
+
+      <figure class="case__media case__media--lg">
+        <img src="/coach-programme-adaptatif.png"
+             alt="Programme d'entraînement adaptatif"
+             loading="lazy"
+             onerror="this.remove()" />
+        <div class="case__placeholder" data-tone="ink">
+          <span class="case__placeholderLabel">Programme d'entraînement adaptatif</span>
+          <span class="case__placeholderHint">À uploader : coach-programme-adaptatif.png</span>
+        </div>
+        <figcaption>Les charges s'ajustent automatiquement selon le niveau de fatigue détecté par la Whoop.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="case__closing">
+  <div class="container">
+    <p class="case__closingText js-reveal">
+      Le coach humain ne peut pas être là à 5h du matin.<br/>
+      L'IA, si. Et avec la <em>bonne mémoire</em>, elle finit par mieux vous connaître que n'importe qui.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="contact">
+  <div class="container contact__inner">
+    <span class="section__index section__index--light">— Travailler ensemble</span>
+    <h2 class="display display--xl js-reveal">
+      Un projet <em>biométrie</em><br/>ou coach IA&nbsp;?
+    </h2>
+
+    <a href="mailto:contact@robinpailhes.fr?subject=Projet%20coach%20IA%20%26%20biom%C3%A9trie" class="contact__email" data-cursor="link">
+      <span>contact@robinpailhes.fr</span>
+      <span class="contact__arrow">→</span>
+    </a>
+
+    <div class="contact__meta">
+      <div>
+        <span class="contact__label">Domaines</span>
+        <span class="contact__val">Sport · Nutrition · Santé</span>
+      </div>
+      <div>
+        <span class="contact__label">Devices</span>
+        <span class="contact__val">Whoop · Apple Watch · Oura</span>
+      </div>
+      <div>
+        <span class="contact__label">Localisation</span>
+        <span class="contact__val">Montpellier · Remote</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="case__next">
+  <div class="container case__nextInner">
+    <a href="/projets/ankora/" class="case__nextLink case__nextLink--prev" data-cursor="link">
+      <span class="case__nextLabel">← Projet précédent</span>
+      <span class="case__nextTitle">Ankora <em>— SaaS GEO</em></span>
+    </a>
+    <a href="/#work" class="case__nextLink" data-cursor="link" style="text-align:right;">
+      <span class="case__nextLabel">Tous les projets →</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__marquee" aria-hidden="true">
+    <div class="marquee__track marquee__track--lg">
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© <span id="year"></span> Robin Pailhes</span>
+    <span class="footer__links">
+      <a href="https://www.linkedin.com/" data-cursor="link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/" data-cursor="link" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://x.com/" data-cursor="link" target="_blank" rel="noopener">X</a>
+    </span>
+    <span class="footer__made">Conçu &amp; développé à Montpellier</span>
+  </div>
+</footer>
+
+<script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script defer src="../../script.js"></script>
+</body>
+</html>

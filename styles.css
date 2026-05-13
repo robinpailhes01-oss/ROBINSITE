@@ -1388,6 +1388,44 @@ img { max-width: 100%; display: block; }
   .case__schema { aspect-ratio: 4/3; }
 }
 
+/* Liste de features éditoriale (case study) */
+.case__features {
+  display: grid;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.case__features li {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.case__features li strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.case__features li span {
+  color: var(--dim);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  max-width: 56ch;
+}
+@media (max-width: 720px) {
+  .case__features li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+  .case__features li strong { font-size: 1.1rem; }
+  .case__features li span { font-size: 0.92rem; }
+}
+
 /* CTA dans le hero du case study — bouton "Visiter le site" */
 .case__heroCta {
   display: inline-flex;
