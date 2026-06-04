@@ -2335,18 +2335,28 @@ img { max-width: 100%; display: block; }
 
 /* Main content — photo + text */
 .story__main {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 90px);
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: flex-start;
 }
 .story__media {
+  flex: 1 1 380px;
+  min-width: 0;
+  max-width: 460px;
   margin: 0;
   position: sticky;
   top: 110px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
+.story__text {
+  flex: 2 1 0;
+  min-width: 0;
+  display: block;
+}
+.story__text > * + * { margin-top: 22px; }
 .story__media img {
   width: 100%;
   aspect-ratio: 4/5;
