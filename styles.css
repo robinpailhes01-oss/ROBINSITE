@@ -2263,6 +2263,191 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================================================
+   POPUP — invitation audit (déclencheurs intelligents)
+   =========================================================== */
+
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+.popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+.popup__card {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  background: var(--ink-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  padding: 44px 40px 36px;
+  transform: scale(0.94) translateY(28px);
+  transition: transform .5s cubic-bezier(.2, .8, .25, 1);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(248, 244, 234, 0.05);
+}
+.popup.is-open .popup__card {
+  transform: scale(1) translateY(0);
+}
+.popup__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  color: var(--dim);
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background .25s ease, color .25s ease;
+  font-family: var(--sans);
+}
+.popup__close:hover {
+  background: rgba(248, 244, 234, 0.08);
+  color: var(--text);
+}
+.popup__eyebrow {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.popup__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 18px;
+  color: var(--text);
+}
+.popup__title em {
+  font-style: italic;
+  color: var(--champagne);
+  font-weight: 300;
+}
+.popup__lede {
+  font-size: 0.96rem;
+  color: var(--dim);
+  line-height: 1.55;
+  margin: 0 0 22px;
+}
+.popup__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: grid;
+  gap: 8px;
+}
+.popup__bullets li {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 0;
+}
+.popup__bullets li::before {
+  content: "✓";
+  color: var(--champagne);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.popup__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+.popup__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: var(--champagne);
+  color: var(--ink);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  transition: background .3s ease, transform .3s ease, color .3s ease;
+}
+.popup__cta:hover {
+  background: var(--text);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+.popup__cta:hover .popup__ctaArrow { transform: translateX(4px); }
+.popup__ctaArrow {
+  display: inline-block;
+  transition: transform .3s ease;
+}
+.popup__dismiss {
+  background: transparent;
+  border: 0;
+  color: var(--dim);
+  font-size: 0.86rem;
+  cursor: pointer;
+  padding: 10px;
+  font-family: var(--sans);
+  letter-spacing: 0.04em;
+  transition: color .25s ease;
+}
+.popup__dismiss:hover {
+  color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .popup { padding: 16px; }
+  .popup__card {
+    padding: 36px 24px 28px;
+    border-radius: 16px;
+  }
+  .popup__title {
+    font-size: 1.4rem;
+    padding-right: 30px;
+  }
+  .popup__lede {
+    font-size: 0.92rem;
+  }
+}
+
+/* ===========================================================
    AUDIT — page quiz multi-étapes
    =========================================================== */
 

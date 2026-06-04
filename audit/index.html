@@ -56,7 +56,7 @@
         Votre <em>analyse personnalisée</em><br/>sous 24h.
       </h1>
       <p class="lede">
-        4 étapes, 5 minutes. Je reçois vos réponses, j’analyse, et je vous envoie par mail
+        5 étapes, 6 minutes. Je reçois vos réponses, j’analyse, et je vous envoie par mail
         un plan d’action concret adapté à votre commerce — que vous décidiez de travailler avec moi ou pas.
       </p>
     </header>
@@ -71,11 +71,11 @@
       <!-- Progress bar -->
       <div class="audit__progress" aria-label="Progression du formulaire">
         <div class="audit__progressTrack">
-          <div class="audit__progressBar" id="auditProgress" style="width:25%;"></div>
+          <div class="audit__progressBar" id="auditProgress" style="width:20%;"></div>
         </div>
         <div class="audit__progressMeta">
-          <span class="audit__progressStep">Étape <span id="auditStepCurrent">1</span> sur <span id="auditStepTotal">4</span></span>
-          <span class="audit__progressPct"><span id="auditProgressPct">25</span>%</span>
+          <span class="audit__progressStep">Étape <span id="auditStepCurrent">1</span> sur <span id="auditStepTotal">5</span></span>
+          <span class="audit__progressPct"><span id="auditProgressPct">20</span>%</span>
         </div>
       </div>
 
@@ -107,6 +107,18 @@
             <label class="audit__radio"><input type="radio" name="team_size" value="2 à 5 personnes" /><span>2 à 5</span></label>
             <label class="audit__radio"><input type="radio" name="team_size" value="6 à 15 personnes" /><span>6 à 15</span></label>
             <label class="audit__radio"><input type="radio" name="team_size" value="Plus de 15" /><span>15+</span></label>
+          </div>
+        </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">D’où viennent vos clients principalement&nbsp;?</span>
+          <div class="audit__radioGroup">
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Bouche-à-oreille / recommandations" required /><span>Bouche-à-oreille / recommandations</span></label>
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Instagram / TikTok" /><span>Instagram / TikTok</span></label>
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Google / recherche web" /><span>Google / recherche web</span></label>
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Facebook / publicités" /><span>Facebook / publicités</span></label>
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Passage en boutique / clientèle locale" /><span>Passage en boutique / clientèle locale</span></label>
+            <label class="audit__radio"><input type="radio" name="clients_source" value="Autre / plusieurs sources" /><span>Autre / plusieurs sources</span></label>
           </div>
         </div>
       </fieldset>
@@ -141,6 +153,16 @@
             <label class="audit__radio"><input type="radio" name="time_lost" value="Plus de 20h" /><span>20h+</span></label>
           </div>
         </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Combien de messages clients par jour en moyenne&nbsp;?</span>
+          <div class="audit__radioGroup audit__radioGroup--row">
+            <label class="audit__radio"><input type="radio" name="messages_per_day" value="Moins de 5" required /><span>&lt; 5</span></label>
+            <label class="audit__radio"><input type="radio" name="messages_per_day" value="5 à 20" /><span>5–20</span></label>
+            <label class="audit__radio"><input type="radio" name="messages_per_day" value="20 à 50" /><span>20–50</span></label>
+            <label class="audit__radio"><input type="radio" name="messages_per_day" value="Plus de 50" /><span>50+</span></label>
+          </div>
+        </div>
       </fieldset>
 
       <!-- STEP 3 — Cadre -->
@@ -171,15 +193,53 @@
             <label class="audit__radio"><input type="radio" name="timing" value="Pas pressé" /><span>Pas pressé</span></label>
           </div>
         </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Avez-vous déjà testé des outils IA pour votre activité&nbsp;?</span>
+          <div class="audit__radioGroup">
+            <label class="audit__radio"><input type="radio" name="ai_experience" value="Jamais, je découvre" required /><span>Jamais, je découvre</span></label>
+            <label class="audit__radio"><input type="radio" name="ai_experience" value="Un peu, sans suite" /><span>Un peu, sans suite</span></label>
+            <label class="audit__radio"><input type="radio" name="ai_experience" value="Plusieurs essais, sans succès durable" /><span>Plusieurs essais, sans succès durable</span></label>
+            <label class="audit__radio"><input type="radio" name="ai_experience" value="Oui, j'utilise déjà certains outils" /><span>Oui, j’utilise déjà certains outils</span></label>
+          </div>
+        </div>
       </fieldset>
 
-      <!-- STEP 4 — Coordonnées -->
+      <!-- STEP 4 — Votre vision (NOUVEAU — golden info) -->
       <fieldset class="audit__step" data-step="4">
         <legend>
           <span class="audit__stepLabel">04</span>
-          <span class="audit__stepTitle">Vos coordonnées</span>
-          <span class="audit__stepHint">Pour vous envoyer votre analyse personnalisée par mail.</span>
+          <span class="audit__stepTitle">Votre vision</span>
+          <span class="audit__stepHint">Plus vous êtes précis ici, plus mon analyse sera utile. Pas de mauvaise réponse.</span>
         </legend>
+
+        <label class="audit__textField">
+          <span class="audit__fieldLabel">Dans 6 mois, à quoi ressemble votre quotidien si tout va bien&nbsp;?</span>
+          <textarea name="vision_6m" rows="4" required placeholder="Ex : Je passe plus de temps avec mes clients qu'à répondre à des messages, mes factures partent toutes seules, je suis enfin visible sur Internet…"></textarea>
+        </label>
+
+        <label class="audit__textField">
+          <span class="audit__fieldLabel">Quelle est votre plus grosse frustration aujourd’hui&nbsp;?</span>
+          <textarea name="biggest_frustration" rows="4" required placeholder="Ex : Je rate des clients parce que je ne réponds pas assez vite. Ou : Je passe mes dimanches sur les factures…"></textarea>
+        </label>
+      </fieldset>
+
+      <!-- STEP 5 — Coordonnées -->
+      <fieldset class="audit__step" data-step="5">
+        <legend>
+          <span class="audit__stepLabel">05</span>
+          <span class="audit__stepTitle">Vos coordonnées</span>
+          <span class="audit__stepHint">Pour vous envoyer votre analyse personnalisée par mail sous 24h.</span>
+        </legend>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Êtes-vous le décideur du projet&nbsp;?</span>
+          <div class="audit__radioGroup">
+            <label class="audit__radio"><input type="radio" name="decision_maker" value="Oui, c'est moi qui décide" required /><span>Oui, c’est moi qui décide</span></label>
+            <label class="audit__radio"><input type="radio" name="decision_maker" value="Avec mon associé(e) / conjoint(e)" /><span>Avec mon associé·e / conjoint·e</span></label>
+            <label class="audit__radio"><input type="radio" name="decision_maker" value="Non, je suis salarié(e) — je transmets" /><span>Non, je suis salarié·e — je transmets</span></label>
+          </div>
+        </div>
 
         <div class="audit__row">
           <label class="audit__textField">

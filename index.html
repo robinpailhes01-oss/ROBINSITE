@@ -662,6 +662,103 @@
   <span class="whatsapp__label">Discutons</span>
 </a>
 
+<!-- POPUP AUDIT — déclenché après 45s, 70% scroll, ou exit intent -->
+<div id="auditPopup" class="popup" hidden role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div class="popup__overlay" data-close></div>
+  <div class="popup__card">
+    <button type="button" class="popup__close" aria-label="Fermer" data-close>×</button>
+    <span class="popup__eyebrow">— Avant de partir</span>
+    <h3 id="popupTitle" class="popup__title">
+      Un audit gratuit <em>pour votre commerce&nbsp;?</em>
+    </h3>
+    <p class="popup__lede">
+      6 minutes. 5 questions. Vous recevez par mail un plan d’action concret adapté à votre activité — que vous décidiez de travailler avec moi ou pas.
+    </p>
+    <ul class="popup__bullets">
+      <li>Pas de pitch commercial</li>
+      <li>Pas de spam, pas de relance</li>
+      <li>Vos données ne sont jamais partagées</li>
+    </ul>
+    <div class="popup__actions">
+      <a href="/audit/" class="popup__cta" data-cursor="link">
+        <span>Faire mon audit</span>
+        <span class="popup__ctaArrow">→</span>
+      </a>
+      <button type="button" class="popup__dismiss" data-close>Plus tard</button>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP — déclencheurs intelligents avec cooldown localStorage -->
+<script>
+(function() {
+  const popup = document.getElementById('auditPopup');
+  if (!popup) return;
+
+  const STORAGE_KEY = 'audit_popup_dismissed_at';
+  const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000; // 3 jours
+
+  // Si dismissé récemment, on ne montre rien
+  const dismissedAt = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  if (dismissedAt && (Date.now() - dismissedAt) < COOLDOWN_MS) return;
+
+  let shown = false;
+
+  function show() {
+    if (shown) return;
+    shown = true;
+    popup.hidden = false;
+    requestAnimationFrame(() => popup.classList.add('is-open'));
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function hide() {
+    popup.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+    setTimeout(() => { popup.hidden = true; }, 400);
+  }
+
+  // Trigger 1 : 45 secondes
+  const timer = setTimeout(show, 45000);
+
+  // Trigger 2 : 70% scroll
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const ratio = window.scrollY / max;
+    if (ratio > 0.7) {
+      window.removeEventListener('scroll', onScroll);
+      show();
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Trigger 3 : exit intent (desktop uniquement)
+  if (!('ontouchstart' in window) && window.matchMedia('(min-width: 900px)').matches) {
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0 && !shown) show();
+    });
+  }
+
+  // Fermeture : croix, overlay, "Plus tard"
+  popup.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', hide);
+  });
+
+  // Échap
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popup.hidden) hide();
+  });
+
+  // Si l'utilisateur clique sur le CTA, on note aussi le dismiss
+  // (sinon il revient et la popup réapparaît au prochain trigger)
+  popup.querySelector('.popup__cta')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+  });
+})();
+</script>
+
 <!-- LIBS -->
 <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
