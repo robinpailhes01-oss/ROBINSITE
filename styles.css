@@ -2336,7 +2336,7 @@ img { max-width: 100%; display: block; }
 /* Main content — photo + text */
 .story__main {
   display: grid;
-  grid-template-columns: 0.95fr 1fr;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
   gap: clamp(40px, 6vw, 90px);
   align-items: start;
 }

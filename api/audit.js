@@ -1,6 +1,8 @@
 const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const TO_EMAIL = process.env.CONTACT_EMAIL || 'contact@robinpailhes.fr';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'Audit Robin <onboarding@resend.dev>';
 
 function esc(str) {
   return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -55,9 +57,9 @@ module.exports = async (req, res) => {
     : d.challenges ? [d.challenges] : [];
 
   try {
-    await resend.emails.send({
-      from: 'Audit Robin <onboarding@resend.dev>',
-      to: ['contact@robinpailhes.fr'],
+    const result = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [TO_EMAIL],
       replyTo: email,
       subject: `🎯 Audit — ${esc(name)}${d.company ? ` · ${esc(d.company)}` : ''} (${esc(d.sector ?? '?')})`,
       html: `<!DOCTYPE html>
@@ -112,6 +114,11 @@ module.exports = async (req, res) => {
 </body>
 </html>`
     });
+
+    if (result.error) {
+      console.error('[audit] Resend rejected:', result.error);
+      return res.status(500).json({ error: result.error.message || 'Erreur envoi' });
+    }
 
     return res.status(200).json({ success: true });
   } catch (err) {
