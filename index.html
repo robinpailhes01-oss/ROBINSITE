@@ -640,20 +640,7 @@
       </div>
     </div>
 
-    <!--
-      FORMULAIRE DE CONTACT — propulsé par Web3Forms (gratuit, 250 envois/mois)
-      Pour l'activer :
-      1. Va sur https://web3forms.com/
-      2. Saisis ton email contact@robinpailhes.fr → clique "Create Access Key"
-      3. Tu reçois une clé par mail
-      4. Remplace YOUR_ACCESS_KEY_HERE ci-dessous par cette clé
-      5. C'est tout — chaque envoi te sera transféré par email
-    -->
-    <form class="contact__form js-reveal" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-      <input type="hidden" name="from_name" value="robinpailhes.fr — formulaire" />
-      <input type="hidden" name="subject" value="Nouveau contact depuis robinpailhes.fr" />
-      <input type="checkbox" name="botcheck" class="form__honeypot" tabindex="-1" autocomplete="off" />
+    <form id="contactForm" class="contact__form js-reveal" novalidate>
 
       <div class="form__row">
         <label class="form__field">
@@ -686,14 +673,63 @@
         <p class="form__note">
           Vos données restent confidentielles. Je vous réponds personnellement sous 24h ouvrées.
         </p>
-        <button type="submit" class="form__submit" data-cursor="link">
+        <button type="submit" class="form__submit" id="contactSubmit" data-cursor="link">
           <span>Envoyer</span>
           <span class="form__submitArrow">→</span>
         </button>
       </div>
     </form>
+
+    <div id="contactSuccess" hidden style="text-align:center;padding:40px 0;">
+      <p style="font-size:2rem;margin-bottom:12px;">✓</p>
+      <p class="display" style="margin-bottom:8px;">Message <em>envoyé.</em></p>
+      <p style="color:var(--ink-60);">Je vous réponds personnellement sous 24h ouvrées.</p>
+    </div>
   </div>
 </section>
+
+<script>
+(function() {
+  var form = document.getElementById('contactForm');
+  var btn  = document.getElementById('contactSubmit');
+  var ok   = document.getElementById('contactSuccess');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var data = {
+      name:    form.querySelector('[name="name"]').value.trim(),
+      email:   form.querySelector('[name="email"]').value.trim(),
+      phone:   form.querySelector('[name="phone"]').value.trim(),
+      company: form.querySelector('[name="company"]').value.trim(),
+      message: form.querySelector('[name="message"]').value.trim()
+    };
+    if (!data.name || !data.email || !data.message) return;
+
+    btn.disabled = true;
+    btn.querySelector('span').textContent = 'Envoi…';
+
+    try {
+      var res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        form.hidden = true;
+        ok.hidden   = false;
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.disabled = false;
+      btn.querySelector('span').textContent = 'Envoyer';
+      alert('Une erreur est survenue. Contactez-moi directement : contact@robinpailhes.fr');
+    }
+  });
+})();
+</script>
 
 </main>
 
@@ -718,12 +754,7 @@
   </div>
 </footer>
 
-<!--
-  BOUTON WHATSAPP FLOTTANT — pour l'activer :
-  Remplace 33612345678 par ton vrai numéro WhatsApp (format international, sans +, sans espaces).
-  Exemple : 33612345678 pour +33 6 12 34 56 78
--->
-<a href="https://wa.me/33612345678?text=Bonjour%20Robin%2C%20je%20viens%20de%20votre%20site%20et%20je%20souhaiterais%20discuter%20de%20mon%20commerce."
+<a href="https://wa.me/33619298284?text=Bonjour%20Robin%2C%20je%20viens%20de%20votre%20site%20et%20je%20souhaiterais%20discuter%20de%20mon%20commerce."
    target="_blank"
    rel="noopener"
    class="whatsapp"

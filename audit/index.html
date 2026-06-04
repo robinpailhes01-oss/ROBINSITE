@@ -62,11 +62,7 @@
     </header>
 
     <!-- Quiz form -->
-    <form id="auditForm" class="audit__form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-      <input type="hidden" name="from_name" value="robinpailhes.fr — Audit gratuit" />
-      <input type="hidden" name="subject" value="🎯 Nouvel audit reçu via robinpailhes.fr" />
-      <input type="checkbox" name="botcheck" class="form__honeypot" tabindex="-1" autocomplete="off" />
+    <form id="auditForm" class="audit__form" action="/api/audit" method="POST" novalidate>
 
       <!-- Progress bar -->
       <div class="audit__progress" aria-label="Progression du formulaire">
@@ -297,7 +293,7 @@
           Merci. J’ai bien reçu vos réponses — je vous envoie une analyse personnalisée par mail sous 24h ouvrées.
         </p>
         <p class="audit__successNext">
-          En attendant, vous pouvez aussi <a href="https://wa.me/33612345678" target="_blank" rel="noopener">me joindre sur WhatsApp</a> si c’est urgent.
+          En attendant, vous pouvez aussi <a href="https://wa.me/33619298284" target="_blank" rel="noopener">me joindre sur WhatsApp</a> si c’est urgent.
         </p>
         <a href="/" class="audit__btn audit__btn--ghost">← Retour à l’accueil</a>
       </div>
@@ -307,7 +303,7 @@
 </main>
 
 <!-- WhatsApp floating -->
-<a href="https://wa.me/33612345678?text=Bonjour%20Robin%2C%20je%20fais%20l%27audit%20sur%20votre%20site%20et%20j%27ai%20une%20question."
+<a href="https://wa.me/33619298284?text=Bonjour%20Robin%2C%20je%20fais%20l%27audit%20sur%20votre%20site%20et%20j%27ai%20une%20question."
    target="_blank" rel="noopener" class="whatsapp" aria-label="Me contacter sur WhatsApp" data-cursor="link">
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path fill="currentColor" d="M16 0C7.16 0 0 7.16 0 16c0 2.82.74 5.47 2.04 7.78L0 32l8.45-2.21A15.93 15.93 0 0 0 16 32c8.84 0 16-7.16 16-16S24.84 0 16 0zm0 29.33c-2.36 0-4.58-.67-6.46-1.83l-.46-.28-4.79 1.26 1.28-4.67-.3-.48A13.27 13.27 0 0 1 2.67 16c0-7.36 5.97-13.33 13.33-13.33S29.33 8.64 29.33 16 23.36 29.33 16 29.33zm7.32-9.97c-.4-.2-2.37-1.17-2.74-1.3-.37-.13-.64-.2-.9.2-.27.4-1.04 1.3-1.27 1.57-.23.27-.47.3-.87.1-.4-.2-1.7-.62-3.23-2-.36-.32-.6-.72-.83-1.12-.23-.4-.03-.62.17-.82.17-.17.4-.43.6-.65.2-.22.27-.37.4-.62.13-.25.07-.47-.03-.65-.1-.18-.9-2.18-1.23-3-.32-.78-.65-.67-.9-.68l-.77-.02c-.27 0-.7.1-1.07.5-.37.4-1.4 1.37-1.4 3.33s1.43 3.87 1.63 4.13c.2.27 2.83 4.3 6.85 6.03.96.42 1.7.67 2.28.85.96.3 1.83.27 2.52.16.77-.11 2.37-.97 2.7-1.9.33-.93.33-1.73.23-1.9-.1-.17-.37-.27-.77-.47z"/>
@@ -424,7 +420,20 @@
 
     try {
       const formData = new FormData(form);
-      const res = await fetch(form.action, { method: 'POST', body: formData });
+      const data = {};
+      formData.forEach((value, key) => {
+        if (data[key] !== undefined) {
+          if (!Array.isArray(data[key])) data[key] = [data[key]];
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+      const res = await fetch('/api/audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
       if (res.ok) {
         form.style.display = 'none';
         successEl.hidden = false;
