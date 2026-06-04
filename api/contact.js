@@ -3,6 +3,7 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'contact@robinpailhes.fr';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Site Robin <onboarding@resend.dev>';
+const CC_EMAIL = process.env.CC_EMAIL || null;
 
 function esc(str) {
   return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -26,6 +27,7 @@ module.exports = async (req, res) => {
     const result = await resend.emails.send({
       from: FROM_EMAIL,
       to: [TO_EMAIL],
+      ...(CC_EMAIL ? { cc: [CC_EMAIL] } : {}),
       replyTo: email,
       subject: `💬 ${esc(name)}${company ? ` — ${esc(company)}` : ''} (robinpailhes.fr)`,
       html: `<!DOCTYPE html>
