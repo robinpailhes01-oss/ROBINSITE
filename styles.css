@@ -1925,6 +1925,359 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===========================================================
+   PRICING / TARIFS — 3 paliers
+   =========================================================== */
+
+.pricing { padding: var(--pad-y) 0; border-top: 1px solid var(--line); }
+.pricing .section__head { margin-bottom: 56px; max-width: 760px; }
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+.pricing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 32px;
+  background: rgba(248,244,234,0.025);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+.pricing__card:hover {
+  border-color: var(--line-strong);
+  background: rgba(248,244,234,0.04);
+  transform: translateY(-4px);
+}
+.pricing__card--featured {
+  background: linear-gradient(180deg, rgba(227,201,164,0.10) 0%, rgba(227,201,164,0.02) 100%);
+  border-color: rgba(227,201,164,0.45);
+}
+.pricing__card--featured:hover {
+  border-color: var(--champagne);
+}
+.pricing__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--champagne);
+  color: var(--ink);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pricing__head { display: grid; gap: 8px; margin-bottom: 24px; }
+.pricing__tag {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  font-weight: 500;
+}
+.pricing__card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0;
+}
+.pricing__price {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.pricing__priceMain {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.pricing__priceNote {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--dim);
+  letter-spacing: 0;
+}
+.pricing__features {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 36px;
+  flex: 1;
+}
+.pricing__features li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+.pricing__features li::before {
+  content: "→";
+  color: var(--champagne);
+  font-family: var(--serif);
+  font-style: italic;
+}
+.pricing__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: var(--text);
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+  margin-top: auto;
+}
+.pricing__cta:hover {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.pricing__cta--solid {
+  background: var(--champagne);
+  color: var(--ink);
+  border-color: var(--champagne);
+}
+.pricing__cta--solid:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--ink);
+}
+.pricing__cta:hover .pricing__ctaArrow { transform: translateX(4px); }
+.pricing__ctaArrow {
+  display: inline-block;
+  transition: transform .3s ease;
+}
+.pricing__footnote {
+  margin-top: 48px;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--dim);
+  max-width: 64ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===========================================================
+   FAQ
+   =========================================================== */
+
+.faq { padding: var(--pad-y) 0; border-top: 1px solid var(--line); }
+.faq__list {
+  display: grid;
+  border-top: 1px solid var(--line);
+  margin-top: 56px;
+}
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+.faq__item details { overflow: hidden; }
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 60px 1fr 40px;
+  gap: 18px;
+  align-items: baseline;
+  padding: 28px 0;
+  transition: padding .3s ease;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item details[open] summary {
+  padding-bottom: 16px;
+}
+.faq__item summary:hover { padding-left: 8px; }
+.faq__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--champagne);
+}
+.faq__q {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.3;
+}
+.faq__icon {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--champagne);
+  text-align: right;
+  font-weight: 300;
+  transition: transform .35s cubic-bezier(.7,0,.2,1);
+  line-height: 1;
+}
+.faq__item details[open] .faq__icon {
+  transform: rotate(45deg);
+}
+.faq__a {
+  padding: 0 0 28px 78px;
+  animation: faqSlide .4s cubic-bezier(.2,.7,.2,1);
+}
+.faq__a p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 64ch;
+}
+.faq__a p strong { color: var(--text); font-weight: 500; }
+.faq__a p em { font-style: italic; color: var(--champagne); }
+@keyframes faqSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================================================
+   CONTACT — bouton Calendly + actions
+   =========================================================== */
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-self: start;
+}
+.contact__bookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 28px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+  transition: background .3s ease, color .3s ease, transform .3s ease;
+  width: max-content;
+  max-width: 100%;
+}
+.contact__bookBtn:hover {
+  background: var(--champagne-2);
+  border-color: var(--champagne-2);
+  transform: translateY(-2px);
+}
+.contact__bookIcon {
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+}
+.contact__bookLabel {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.contact__bookSub {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* ===========================================================
+   BOUTON WHATSAPP FLOTTANT
+   =========================================================== */
+
+.whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px 14px 18px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform .3s ease, box-shadow .3s ease;
+  text-decoration: none;
+}
+.whatsapp:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(37,211,102,0.5), 0 4px 12px rgba(0,0,0,0.25);
+}
+.whatsapp svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.whatsapp__label {
+  position: relative;
+  top: 0.5px;
+}
+@media (max-width: 720px) {
+  .whatsapp {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 18px 12px 14px;
+    font-size: 0.84rem;
+  }
+  .whatsapp svg { width: 20px; height: 20px; }
+}
+@media (max-width: 480px) {
+  .whatsapp__label { display: none; }
+  .whatsapp { padding: 14px; border-radius: 50%; }
+}
+
+/* ===========================================================
+   PRICING & FAQ — responsive
+   =========================================================== */
+
+@media (max-width: 1100px) {
+  .pricing__grid { grid-template-columns: 1fr; gap: 18px; }
+  .pricing__card--featured { order: -1; }
+}
+@media (max-width: 720px) {
+  .pricing__card { padding: 28px 22px; }
+  .pricing__price { margin-bottom: 22px; padding-bottom: 18px; }
+  .pricing__features { margin-bottom: 28px; }
+  .faq__item summary {
+    grid-template-columns: 40px 1fr 28px;
+    gap: 12px;
+    padding: 22px 0;
+  }
+  .faq__num { font-size: 0.95rem; }
+  .faq__q { font-size: 1.05rem; }
+  .faq__icon { font-size: 1.4rem; }
+  .faq__a { padding: 0 0 22px 52px; }
+  .faq__a p { font-size: 0.94rem; }
+  .contact__bookBtn { width: 100%; justify-content: center; }
+}
+
+/* ===========================================================
    MOBILE OPTIMIZATION — refonte responsive complète
    Breakpoints : 1100 (tablet) · 720 (mobile L) · 480 (mobile S)
    =========================================================== */
