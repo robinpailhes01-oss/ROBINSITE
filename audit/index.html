@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1c1a18" />
+<meta name="color-scheme" content="dark" />
+
+<title>Audit gratuit — Robin Pailhes · L'IA pour votre commerce</title>
+<meta name="description" content="Audit gratuit en 5 minutes. Répondez à 4 questions, recevez sous 24h une analyse personnalisée et 3 actions concrètes pour votre commerce." />
+<link rel="canonical" href="https://robinpailhes.fr/audit/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Audit gratuit — Robin Pailhes" />
+<meta property="og:description" content="5 minutes. 4 questions. Une analyse personnalisée sous 24h." />
+<meta property="og:url" content="https://robinpailhes.fr/audit/" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c1a18'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e3c9a4'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+<a class="skip" href="#audit-top">Aller au formulaire</a>
+
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="/" class="nav__logo" data-cursor="link" aria-label="Retour à l'accueil — Robin Pailhes">
+    <span class="nav__mark">●</span>
+    <span>Robin Pailhes</span>
+  </a>
+  <div class="nav__right">
+    <a href="/" class="nav__cta" data-cursor="link">
+      <span>← Retour</span>
+    </a>
+  </div>
+</header>
+
+<main id="audit-top" class="audit">
+  <div class="container audit__inner">
+
+    <!-- Intro -->
+    <header class="audit__head">
+      <span class="overline"><span class="overline__dot"></span>Audit gratuit · sans engagement</span>
+      <h1 class="display display--lg">
+        Votre <em>analyse personnalisée</em><br/>sous 24h.
+      </h1>
+      <p class="lede">
+        4 étapes, 5 minutes. Je reçois vos réponses, j’analyse, et je vous envoie par mail
+        un plan d’action concret adapté à votre commerce — que vous décidiez de travailler avec moi ou pas.
+      </p>
+    </header>
+
+    <!-- Quiz form -->
+    <form id="auditForm" class="audit__form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="from_name" value="robinpailhes.fr — Audit gratuit" />
+      <input type="hidden" name="subject" value="🎯 Nouvel audit reçu via robinpailhes.fr" />
+      <input type="checkbox" name="botcheck" class="form__honeypot" tabindex="-1" autocomplete="off" />
+
+      <!-- Progress bar -->
+      <div class="audit__progress" aria-label="Progression du formulaire">
+        <div class="audit__progressTrack">
+          <div class="audit__progressBar" id="auditProgress" style="width:25%;"></div>
+        </div>
+        <div class="audit__progressMeta">
+          <span class="audit__progressStep">Étape <span id="auditStepCurrent">1</span> sur <span id="auditStepTotal">4</span></span>
+          <span class="audit__progressPct"><span id="auditProgressPct">25</span>%</span>
+        </div>
+      </div>
+
+      <!-- STEP 1 — Votre activité -->
+      <fieldset class="audit__step is-active" data-step="1">
+        <legend>
+          <span class="audit__stepLabel">01</span>
+          <span class="audit__stepTitle">Vous êtes&nbsp;?</span>
+          <span class="audit__stepHint">Sélectionnez ce qui vous décrit le mieux.</span>
+        </legend>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Votre activité</span>
+          <div class="audit__radioGroup">
+            <label class="audit__radio"><input type="radio" name="sector" value="Restaurant / Bar / Café" required /><span>Restaurant / Bar / Café</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Hôtel / Maison d'hôtes / Gîte" /><span>Hôtel / Maison d’hôtes / Gîte</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Cabinet (médical, libéral, juridique)" /><span>Cabinet (médical, libéral, juridique)</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Artisan (BTP, plomberie, électricité…)" /><span>Artisan (BTP, plomberie, électricité…)</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Commerce de proximité" /><span>Commerce de proximité</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Service / Consulting" /><span>Service / Consulting</span></label>
+            <label class="audit__radio"><input type="radio" name="sector" value="Autre" /><span>Autre</span></label>
+          </div>
+        </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">La taille de votre équipe</span>
+          <div class="audit__radioGroup audit__radioGroup--row">
+            <label class="audit__radio"><input type="radio" name="team_size" value="Seul(e)" required /><span>Seul·e</span></label>
+            <label class="audit__radio"><input type="radio" name="team_size" value="2 à 5 personnes" /><span>2 à 5</span></label>
+            <label class="audit__radio"><input type="radio" name="team_size" value="6 à 15 personnes" /><span>6 à 15</span></label>
+            <label class="audit__radio"><input type="radio" name="team_size" value="Plus de 15" /><span>15+</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 2 — Vos défis -->
+      <fieldset class="audit__step" data-step="2">
+        <legend>
+          <span class="audit__stepLabel">02</span>
+          <span class="audit__stepTitle">Qu’est-ce qui vous prend du temps&nbsp;?</span>
+          <span class="audit__stepHint">Cochez tout ce qui s’applique. Plus c’est précis, mieux je vous oriente.</span>
+        </legend>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Mes défis actuels</span>
+          <div class="audit__checkGroup">
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Je rate des messages clients (Insta, WhatsApp, mail)" /><span>Je rate des messages clients (Insta, WhatsApp, mail)</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="La paperasse (factures, devis, relances) me prend trop de temps" /><span>La paperasse (factures, devis, relances) me prend trop de temps</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Je ne suis pas visible sur ChatGPT / Perplexity" /><span>Je ne suis pas visible sur ChatGPT / Perplexity</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Mes clients ne reviennent pas (fidélisation faible)" /><span>Mes clients ne reviennent pas (fidélisation faible)</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Je n'ai pas le temps pour mes réseaux sociaux" /><span>Je n’ai pas le temps pour mes réseaux sociaux</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Je suis désorganisé(e), je perds le fil" /><span>Je suis désorganisé·e, je perds le fil</span></label>
+            <label class="audit__check"><input type="checkbox" name="challenges" value="Je veux automatiser, je ne sais pas par où commencer" /><span>Je veux automatiser, je ne sais pas par où commencer</span></label>
+          </div>
+        </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Heures perdues par semaine sur l’admin &amp; les messages</span>
+          <div class="audit__radioGroup audit__radioGroup--row">
+            <label class="audit__radio"><input type="radio" name="time_lost" value="Moins de 5h" required /><span>&lt; 5h</span></label>
+            <label class="audit__radio"><input type="radio" name="time_lost" value="5 à 10h" /><span>5–10h</span></label>
+            <label class="audit__radio"><input type="radio" name="time_lost" value="10 à 20h" /><span>10–20h</span></label>
+            <label class="audit__radio"><input type="radio" name="time_lost" value="Plus de 20h" /><span>20h+</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3 — Cadre -->
+      <fieldset class="audit__step" data-step="3">
+        <legend>
+          <span class="audit__stepLabel">03</span>
+          <span class="audit__stepTitle">Le cadre du projet</span>
+          <span class="audit__stepHint">Pour vous proposer une solution réaliste.</span>
+        </legend>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Budget envisagé</span>
+          <div class="audit__radioGroup">
+            <label class="audit__radio"><input type="radio" name="budget" value="Moins de 500 €" required /><span>Moins de 500 €</span></label>
+            <label class="audit__radio"><input type="radio" name="budget" value="500 € à 1 500 €" /><span>500 € à 1 500 €</span></label>
+            <label class="audit__radio"><input type="radio" name="budget" value="1 500 € à 5 000 €" /><span>1 500 € à 5 000 €</span></label>
+            <label class="audit__radio"><input type="radio" name="budget" value="Plus de 5 000 €" /><span>Plus de 5 000 €</span></label>
+            <label class="audit__radio"><input type="radio" name="budget" value="À voir ensemble" /><span>À voir ensemble</span></label>
+          </div>
+        </div>
+
+        <div class="audit__field">
+          <span class="audit__fieldLabel">Délai souhaité</span>
+          <div class="audit__radioGroup audit__radioGroup--row">
+            <label class="audit__radio"><input type="radio" name="timing" value="Cette semaine" required /><span>Cette semaine</span></label>
+            <label class="audit__radio"><input type="radio" name="timing" value="Dans le mois" /><span>Dans le mois</span></label>
+            <label class="audit__radio"><input type="radio" name="timing" value="Dans 3 mois" /><span>Dans 3 mois</span></label>
+            <label class="audit__radio"><input type="radio" name="timing" value="Pas pressé" /><span>Pas pressé</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 4 — Coordonnées -->
+      <fieldset class="audit__step" data-step="4">
+        <legend>
+          <span class="audit__stepLabel">04</span>
+          <span class="audit__stepTitle">Vos coordonnées</span>
+          <span class="audit__stepHint">Pour vous envoyer votre analyse personnalisée par mail.</span>
+        </legend>
+
+        <div class="audit__row">
+          <label class="audit__textField">
+            <span class="audit__fieldLabel">Prénom &amp; nom</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="Prénom Nom" />
+          </label>
+          <label class="audit__textField">
+            <span class="audit__fieldLabel">Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="vous@exemple.com" />
+          </label>
+        </div>
+
+        <div class="audit__row">
+          <label class="audit__textField">
+            <span class="audit__fieldLabel">Téléphone <em>(facultatif)</em></span>
+            <input type="tel" name="phone" autocomplete="tel" placeholder="06 12 34 56 78" />
+          </label>
+          <label class="audit__textField">
+            <span class="audit__fieldLabel">Nom de votre activité</span>
+            <input type="text" name="company" placeholder="Restaurant Le Soleil, Cabinet Durand…" />
+          </label>
+        </div>
+
+        <label class="audit__textField">
+          <span class="audit__fieldLabel">Une chose à ajouter <em>(facultatif)</em></span>
+          <textarea name="message" rows="4" placeholder="Un détail important, une question, un contexte particulier…"></textarea>
+        </label>
+
+        <p class="audit__legal">
+          En envoyant ce formulaire, vous acceptez que Robin Pailhes vous recontacte par mail dans le cadre de votre demande.
+          Vos données ne sont jamais cédées à des tiers. <a href="/mentions-legales/" target="_blank" rel="noopener">Mentions légales</a>.
+        </p>
+      </fieldset>
+
+      <!-- Step controls -->
+      <div class="audit__controls" id="auditControls">
+        <button type="button" class="audit__btn audit__btn--ghost" id="auditPrev" disabled data-cursor="link">
+          ← Précédent
+        </button>
+        <button type="button" class="audit__btn audit__btn--solid" id="auditNext" data-cursor="link">
+          Continuer →
+        </button>
+        <button type="submit" class="audit__btn audit__btn--solid audit__btn--submit" id="auditSubmit" hidden data-cursor="link">
+          Recevoir mon analyse →
+        </button>
+      </div>
+    </form>
+
+    <!-- Success state (shown after submit) -->
+    <div class="audit__success" id="auditSuccess" hidden>
+      <div class="audit__successInner">
+        <div class="audit__successIcon" aria-hidden="true">✓</div>
+        <h2 class="display">C’est dans <em>la boîte.</em></h2>
+        <p class="lede">
+          Merci. J’ai bien reçu vos réponses — je vous envoie une analyse personnalisée par mail sous 24h ouvrées.
+        </p>
+        <p class="audit__successNext">
+          En attendant, vous pouvez aussi <a href="https://wa.me/33612345678" target="_blank" rel="noopener">me joindre sur WhatsApp</a> si c’est urgent.
+        </p>
+        <a href="/" class="audit__btn audit__btn--ghost">← Retour à l’accueil</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- WhatsApp floating -->
+<a href="https://wa.me/33612345678?text=Bonjour%20Robin%2C%20je%20fais%20l%27audit%20sur%20votre%20site%20et%20j%27ai%20une%20question."
+   target="_blank" rel="noopener" class="whatsapp" aria-label="Me contacter sur WhatsApp" data-cursor="link">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill="currentColor" d="M16 0C7.16 0 0 7.16 0 16c0 2.82.74 5.47 2.04 7.78L0 32l8.45-2.21A15.93 15.93 0 0 0 16 32c8.84 0 16-7.16 16-16S24.84 0 16 0zm0 29.33c-2.36 0-4.58-.67-6.46-1.83l-.46-.28-4.79 1.26 1.28-4.67-.3-.48A13.27 13.27 0 0 1 2.67 16c0-7.36 5.97-13.33 13.33-13.33S29.33 8.64 29.33 16 23.36 29.33 16 29.33zm7.32-9.97c-.4-.2-2.37-1.17-2.74-1.3-.37-.13-.64-.2-.9.2-.27.4-1.04 1.3-1.27 1.57-.23.27-.47.3-.87.1-.4-.2-1.7-.62-3.23-2-.36-.32-.6-.72-.83-1.12-.23-.4-.03-.62.17-.82.17-.17.4-.43.6-.65.2-.22.27-.37.4-.62.13-.25.07-.47-.03-.65-.1-.18-.9-2.18-1.23-3-.32-.78-.65-.67-.9-.68l-.77-.02c-.27 0-.7.1-1.07.5-.37.4-1.4 1.37-1.4 3.33s1.43 3.87 1.63 4.13c.2.27 2.83 4.3 6.85 6.03.96.42 1.7.67 2.28.85.96.3 1.83.27 2.52.16.77-.11 2.37-.97 2.7-1.9.33-.93.33-1.73.23-1.9-.1-.17-.37-.27-.77-.47z"/>
+  </svg>
+  <span class="whatsapp__label">Discutons</span>
+</a>
+
+<!-- Footer minimal -->
+<footer class="footer">
+  <div class="container footer__bottom">
+    <span>© <span id="year"></span> Robin Pailhes</span>
+    <span class="footer__links">
+      <a href="/mentions-legales/" data-cursor="link">Mentions légales</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Audit form JS -->
+<script>
+(function() {
+  const form = document.getElementById('auditForm');
+  if (!form) return;
+
+  const steps = Array.from(form.querySelectorAll('.audit__step'));
+  const total = steps.length;
+  const prevBtn = document.getElementById('auditPrev');
+  const nextBtn = document.getElementById('auditNext');
+  const submitBtn = document.getElementById('auditSubmit');
+  const progressBar = document.getElementById('auditProgress');
+  const progressPct = document.getElementById('auditProgressPct');
+  const stepCurrent = document.getElementById('auditStepCurrent');
+  const stepTotal = document.getElementById('auditStepTotal');
+  const successEl = document.getElementById('auditSuccess');
+
+  stepTotal.textContent = total;
+
+  let current = 1;
+
+  function show(step) {
+    steps.forEach(s => s.classList.toggle('is-active', parseInt(s.dataset.step, 10) === step));
+    const pct = Math.round((step / total) * 100);
+    progressBar.style.width = pct + '%';
+    progressPct.textContent = pct;
+    stepCurrent.textContent = step;
+    prevBtn.disabled = step === 1;
+    if (step === total) {
+      nextBtn.hidden = true;
+      submitBtn.hidden = false;
+    } else {
+      nextBtn.hidden = false;
+      submitBtn.hidden = true;
+    }
+    // Smooth scroll into view
+    window.scrollTo({ top: form.offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function validateStep(stepIndex) {
+    const step = steps[stepIndex - 1];
+    const required = step.querySelectorAll('[required]');
+    let valid = true;
+    let firstInvalid = null;
+
+    required.forEach(input => {
+      if (input.type === 'radio') {
+        const name = input.name;
+        const group = step.querySelectorAll(`input[name="${name}"]`);
+        const checked = Array.from(group).some(i => i.checked);
+        const groupParent = input.closest('.audit__field');
+        if (!checked) {
+          valid = false;
+          if (!firstInvalid) firstInvalid = groupParent;
+          groupParent?.classList.add('audit__field--error');
+        } else {
+          groupParent?.classList.remove('audit__field--error');
+        }
+      } else {
+        if (!input.value.trim() || (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value))) {
+          valid = false;
+          input.classList.add('is-error');
+          if (!firstInvalid) firstInvalid = input;
+        } else {
+          input.classList.remove('is-error');
+        }
+      }
+    });
+
+    if (!valid && firstInvalid) {
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return valid;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (!validateStep(current)) return;
+    if (current < total) {
+      current++;
+      show(current);
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 1) {
+      current--;
+      show(current);
+    }
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateStep(current)) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours…';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: formData });
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.hidden = false;
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        throw new Error('submit failed');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Recevoir mon analyse →';
+      alert('Une erreur est survenue. Réessayez ou contactez-moi directement à contact@robinpailhes.fr');
+    }
+  });
+
+  // Year
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Clear error on input
+  form.addEventListener('input', (e) => {
+    if (e.target.matches('input, textarea')) {
+      e.target.classList.remove('is-error');
+      const field = e.target.closest('.audit__field');
+      if (field) field.classList.remove('audit__field--error');
+    }
+  });
+})();
+</script>
+
+<!-- Smooth scroll (Lenis pour cohérence) -->
+<script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+window.addEventListener('load', () => {
+  if (window.Lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const lenis = new Lenis({ duration: 1.4, easing: t => 1 - Math.pow(1 - t, 4) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+});
+</script>
+
+</body>
+</html>
