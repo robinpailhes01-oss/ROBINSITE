@@ -81,9 +81,10 @@
   </a>
   <nav class="nav__links" aria-label="Navigation principale">
     <a href="#ethos" data-cursor="link"><span>01</span> Approche</a>
-    <a href="#capabilities" data-cursor="link"><span>02</span> Services</a>
-    <a href="#pricing" data-cursor="link"><span>03</span> Tarifs</a>
-    <a href="#work" data-cursor="link"><span>04</span> Projets</a>
+    <a href="#story" data-cursor="link"><span>02</span> Qui suis-je</a>
+    <a href="#capabilities" data-cursor="link"><span>03</span> Services</a>
+    <a href="#pricing" data-cursor="link"><span>04</span> Tarifs</a>
+    <a href="#work" data-cursor="link"><span>05</span> Projets</a>
   </nav>
   <div class="nav__right">
     <span class="nav__time" aria-live="off"><span class="nav__timeDot"></span><span id="navTime">— : —</span> · Montpellier</span>
@@ -193,11 +194,83 @@
   </div>
 </section>
 
+<!-- QUI SUIS-JE / STORY -->
+<section id="story" class="story" aria-labelledby="story-title">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="section__index">— 02 / Qui suis-je</span>
+      <h2 id="story-title" class="display display--lg js-reveal">
+        J’ai d’abord construit l’IA<br/>pour <em>ma propre entreprise.</em>
+      </h2>
+    </div>
+
+    <!-- Stats row -->
+    <div class="story__stats js-reveal">
+      <div class="story__stat">
+        <span class="story__statNum">100<sup>+</sup></span>
+        <span class="story__statLabel">messages clients<br/>traités <em>automatiquement</em> chaque jour</span>
+      </div>
+      <div class="story__stat">
+        <span class="story__statNum">4h</span>
+        <span class="story__statLabel">économisées<br/>chaque jour, <em>minimum</em></span>
+      </div>
+      <div class="story__stat">
+        <span class="story__statNum">24/7</span>
+        <span class="story__statLabel">disponibilité<br/>réservations <em>7j/7</em>, weekend inclus</span>
+      </div>
+    </div>
+
+    <!-- Content with photo -->
+    <div class="story__main">
+      <figure class="story__media js-reveal">
+        <img src="/hy-yacht-hero.jpg" alt="Harmonie Yacht — mon entreprise à Carnon, Montpellier" loading="lazy" />
+        <figcaption class="story__caption">
+          <span class="story__captionLabel">Harmonie Yacht</span>
+          <span class="story__captionMeta">Mon entreprise · Carnon, Montpellier</span>
+        </figcaption>
+      </figure>
+
+      <div class="story__text">
+        <p class="lede js-reveal">
+          En 2024, je gérais <strong>Harmonie Yacht</strong>, mon entreprise de location de yachts à Carnon — seul.
+          En haute saison&nbsp;: plus de <strong>100 messages par jour</strong> à traiter sur Instagram, WhatsApp et mail,
+          des réservations, des contrats à rédiger, des factures, des signatures, la compta à classer.
+        </p>
+        <p class="lede js-reveal">
+          J’étais devenu mon propre goulot d’étranglement. <em>Plus le temps de rien faire d’autre.</em>
+        </p>
+        <p class="lede js-reveal">
+          Alors j’ai construit <em>Léa</em>, mon infrastructure IA. Aujourd’hui c’est elle qui&nbsp;:
+        </p>
+
+        <ul class="story__list js-reveal">
+          <li><strong>Répond</strong> à toutes les demandes — Instagram, WhatsApp, mail</li>
+          <li><strong>Qualifie</strong> chaque lead et identifie les vrais clients</li>
+          <li><strong>Rédige</strong> les contrats de location automatiquement</li>
+          <li><strong>Émet</strong> les factures et gère les signatures</li>
+          <li><strong>Classe</strong> tout dans le dossier compta, prêt pour le comptable</li>
+        </ul>
+
+        <p class="lede js-reveal">
+          Quand des amis entrepreneurs ont vu Léa tourner, ils m’ont demandé&nbsp;:
+          <em>«&nbsp;Tu peux me faire ça aussi&nbsp;?&nbsp;»</em>
+          C’est devenu mon métier.
+        </p>
+
+        <a href="/audit/" class="story__cta js-reveal" data-cursor="link">
+          <span>Vous voulez la même chose pour votre commerce&nbsp;?</span>
+          <span class="story__ctaArrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CAPABILITIES / SERVICES -->
 <section id="capabilities" class="caps" aria-labelledby="caps-title">
   <div class="container">
     <div class="section__head">
-      <span class="section__index">— 02 / Services</span>
+      <span class="section__index">— 03 / Services</span>
       <h2 id="caps-title" class="display display--lg js-reveal">
         Trois leviers pour <em>votre commerce.</em>
       </h2>
@@ -247,7 +320,7 @@
 <section id="pricing" class="pricing" aria-labelledby="pricing-title">
   <div class="container">
     <div class="section__head">
-      <span class="section__index">— 03 / Tarifs</span>
+      <span class="section__index">— 04 / Tarifs</span>
       <h2 id="pricing-title" class="display display--lg js-reveal">
         Trois manières de <em>travailler ensemble.</em>
       </h2>
@@ -312,7 +385,7 @@
   <div class="container">
     <div class="section__head section__head--row">
       <div>
-        <span class="section__index">— 04 / Projets</span>
+        <span class="section__index">— 05 / Projets</span>
         <h2 id="work-title" class="display display--lg js-reveal">Sélection <em>récente.</em></h2>
       </div>
       <p class="work__legend js-reveal">2024 — 2026.<br/>Détails complémentaires sur demande.</p>
@@ -321,12 +394,13 @@
     <div class="gallery">
       <div class="gallery__visual">
         <div class="gallery__stage" id="galleryStage">
-          <div class="gallery__slide gallery__slide--photo is-active" data-slide="0"
+          <div class="gallery__slide gallery__slide--photo gallery__slide--own is-active" data-slide="0"
                style="background-image: linear-gradient(180deg, rgba(13,26,46,0.35) 0%, rgba(13,26,46,0.85) 100%), url('/hy-yacht-hero.jpg'); background-size: cover; background-position: center;">
             <div class="gallery__card">
+              <span class="gallery__cardBadge">Mon entreprise</span>
               <span class="gallery__cardIndex">01 / 04</span>
               <h4 class="gallery__cardTitle">Harmonie<br/>Yacht</h4>
-              <span class="gallery__cardMeta">Léa, agent IA · Lead scoring · Facturation auto &nbsp;—&nbsp; 2025</span>
+              <span class="gallery__cardMeta">L’infrastructure IA que j’ai testée sur moi avant tout le monde &nbsp;—&nbsp; 2025</span>
             </div>
           </div>
           <div class="gallery__slide gallery__slide--photo" data-slide="1"
@@ -357,13 +431,14 @@
       </div>
 
       <ol class="gallery__list">
-        <li class="gallery__item is-active" data-target="0">
-          <a href="#contact" data-cursor="link" aria-label="Harmonie Yacht — me contacter">
+        <li class="gallery__item gallery__item--own is-active" data-target="0">
+          <a href="#story" data-cursor="link" aria-label="Harmonie Yacht — mon entreprise, voir mon histoire">
             <div class="gallery__row">
               <span class="gallery__index">01</span>
               <div class="gallery__meta">
+                <span class="gallery__rowBadge">Mon entreprise</span>
                 <h3>Harmonie Yacht</h3>
-                <p>Agent IA Léa · Lead scoring · Facturation auto · 2025</p>
+                <p>L’infrastructure IA que j’ai testée sur moi avant tout le monde · 2025</p>
               </div>
               <span class="gallery__arrow">↗</span>
             </div>
@@ -414,7 +489,7 @@
 <section id="faq" class="faq" aria-labelledby="faq-title">
   <div class="container">
     <div class="section__head">
-      <span class="section__index">— 05 / Questions</span>
+      <span class="section__index">— 06 / Questions</span>
       <h2 id="faq-title" class="display display--lg js-reveal">
         Ce qu’on me demande <em>le plus souvent.</em>
       </h2>
@@ -531,7 +606,7 @@
 <!-- CONTACT / CTA -->
 <section id="contact" class="contact" aria-labelledby="contact-title">
   <div class="container contact__inner">
-    <span class="section__index section__index--light">— 06 / Contact</span>
+    <span class="section__index section__index--light">— 07 / Contact</span>
     <h2 id="contact-title" class="display display--xl js-reveal">
       Discutons de <em>votre commerce.</em>
     </h2>
