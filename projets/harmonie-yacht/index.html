@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="../../styles.css?v=7" />
 </head>
 <body>
 
@@ -208,42 +208,118 @@
 <section class="case__section case__section--bordered">
   <div class="container">
     <div class="case__galleryHead">
-      <span class="section__index">— Le système, en images</span>
-      <h2 class="display js-reveal">Léa, en <em>action.</em></h2>
+      <span class="section__index">— Avant / après</span>
+      <h2 class="display js-reveal">Ce que Léa a <em>changé.</em></h2>
     </div>
 
-    <div class="case__gallery">
-
-      <!-- WhatsApp conversations — côte à côte (format mobile portrait) -->
-      <div class="case__mediaRow">
-        <figure class="case__media case__media--phone">
-          <img src="/hy-whatsapp-1.png" alt="Conversation WhatsApp — Léa répond à un prospect" loading="lazy" />
-          <figcaption>Léa répond instantanément sur WhatsApp — qualification en cours.</figcaption>
-        </figure>
-        <figure class="case__media case__media--phone">
-          <img src="/hy-whatsapp-2.png" alt="Conversation WhatsApp — Léa confirme une réservation" loading="lazy" />
-          <figcaption>Confirmation de réservation envoyée automatiquement, contrat en chemin.</figcaption>
-        </figure>
+    <!-- Avant / Après comparison -->
+    <div class="avantapres">
+      <div class="avantapres__col avantapres__col--before">
+        <div class="avantapres__label">
+          <span class="avantapres__tag">Avant Léa</span>
+        </div>
+        <ul class="avantapres__list">
+          <li>
+            <span class="avantapres__icon avantapres__icon--neg">—</span>
+            <div>
+              <strong>3h/jour de messages manuels</strong>
+              <span>Trois fenêtres ouvertes simultanément, impossible de se concentrer en pleine saison</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--neg">—</span>
+            <div>
+              <strong>Leads oubliés, zéro suivi</strong>
+              <span>Pas de scoring, pas de relance — des prospects glissaient entre les mailles sans qu'on le sache</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--neg">—</span>
+            <div>
+              <strong>Facturation entièrement manuelle</strong>
+              <span>Chaque devis créé à la main, risque d'oubli, délais importants à chaque réservation</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--neg">—</span>
+            <div>
+              <strong>Injoignable soir &amp; weekend</strong>
+              <span>Les demandes du dimanche soir attendaient jusqu'au lundi matin — souvent trop tard</span>
+            </div>
+          </li>
+        </ul>
       </div>
 
-      <!-- Dashboard principal — pleine largeur -->
-      <figure class="case__media case__media--lg">
-        <img src="/hy-dashboard.png" alt="Tableau de bord Harmonie Yacht" loading="lazy" />
-        <figcaption>Le tableau de bord centralisé — vue d'ensemble en temps réel de toute l'activité.</figcaption>
-      </figure>
+      <div class="avantapres__divider" aria-hidden="true">→</div>
 
-      <!-- Leads + Réservations côte à côte -->
-      <figure class="case__media">
-        <img src="/hy-leads.png" alt="Vue des leads scorés par Léa" loading="lazy" />
-        <figcaption>Les leads qualifiés et scorés par Léa — priorité 1 à 5, prêts à relancer.</figcaption>
-      </figure>
+      <div class="avantapres__col avantapres__col--after">
+        <div class="avantapres__label">
+          <span class="avantapres__tag avantapres__tag--after">Avec Léa</span>
+        </div>
+        <ul class="avantapres__list">
+          <li>
+            <span class="avantapres__icon avantapres__icon--pos">+</span>
+            <div>
+              <strong>Réponse en &lt; 2 min, 24h/24</strong>
+              <span>Chaque message reçoit une réponse instantanée, sur le bon canal, avec le bon ton</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--pos">+</span>
+            <div>
+              <strong>Lead scoring automatique 1 à 5</strong>
+              <span>Chaque conversation est analysée — les prospects chauds remontent en priorité sur le calendrier</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--pos">+</span>
+            <div>
+              <strong>Devis Stripe déclenché automatiquement</strong>
+              <span>Une réservation confirmée = facture générée et envoyée sans aucune intervention manuelle</span>
+            </div>
+          </li>
+          <li>
+            <span class="avantapres__icon avantapres__icon--pos">+</span>
+            <div>
+              <strong>Disponible 7j/7, nuits et fériés</strong>
+              <span>Le dimanche à 22h reçoit la même réponse qualité que le lundi à 10h</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-      <figure class="case__media">
-        <img src="/hy-reservations.png" alt="Vue des réservations confirmées" loading="lazy" />
-        <figcaption>Les réservations confirmées — contrat signé, facture émise, dossier classé.</figcaption>
-      </figure>
+    <!-- Simulated WhatsApp chat -->
+    <div class="case__chatDemo">
+      <div class="case__chatHead">
+        <div class="case__chatAvatar">L</div>
+        <div>
+          <strong>Léa — Harmonie Yacht</strong>
+          <span class="case__chatStatus">● En ligne · répond en &lt; 2 min</span>
+        </div>
+        <span class="case__chatBadge">WhatsApp Business</span>
+      </div>
+      <div class="case__chatBody">
+        <div class="case__chatMsg case__chatMsg--in">
+          Bonjour, je voudrais louer un bateau samedi prochain pour 6 personnes.
+        </div>
+        <div class="case__chatMsg case__chatMsg--out">
+          Bonjour ! Super choix pour un samedi 🌊 Pour 6 personnes j'ai des formules disponibles ce week-end. Vous pensez plutôt à une demi-journée, une journée complète ou une nuit insolite en mer ?
+        </div>
+        <div class="case__chatMsg case__chatMsg--in">
+          Journée complète s'il vous plaît.
+        </div>
+        <div class="case__chatMsg case__chatMsg--out">
+          Parfait ! Journée complète : 8h–18h, départ Carnon — 450 € pour 6 pers., tout inclus. Je vous prépare un devis sous 5 min. Vous préférez régler par carte ou virement ?
+        </div>
+        <div class="case__chatMsg case__chatMsg--note">
+          ↑ Léa qualifie, chiffre et déclenche le devis Stripe — sans aucune intervention manuelle.
+        </div>
+      </div>
+    </div>
 
-      <!-- Schéma architecture — pleine largeur -->
+    <!-- Schéma architecture — pleine largeur -->
+    <div class="case__gallery">
       <figure class="case__media case__media--lg">
         <div class="case__schema" role="img" aria-label="Schéma de l'architecture Harmonie Yacht">
           <svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
@@ -326,7 +402,7 @@
             <!-- Tier 4: Outputs -->
             <g>
               <rect x="180" y="850" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
-              <text x="340" y="898" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Notion</text>
+              <text x="340" y="898" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="300" font-size="32" fill="#f7f3ea">Google Cal.</text>
               <text x="340" y="928" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" letter-spacing="2.5" fill="#7a7468">CALENDRIER &amp; CRM</text>
 
               <rect x="640" y="850" width="320" height="110" rx="4" fill="none" stroke="rgba(247,243,234,0.25)" stroke-width="1.2"/>
