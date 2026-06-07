@@ -1340,6 +1340,16 @@ img { max-width: 100%; display: block; }
 }
 .case__media--lg img,
 .case__media--lg .case__placeholder { aspect-ratio: 21/9; }
+.case__media--phone img { aspect-ratio: 9/16; object-fit: contain; background: #111; }
+
+/* Rangée 2 screenshots mobile côte à côte */
+.case__mediaRow {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.case__mediaRow .case__media { grid-column: span 1; }
 .case__media figcaption {
   font-family: var(--sans);
   font-size: 0.86rem;
@@ -1914,6 +1924,7 @@ img { max-width: 100%; display: block; }
   .case__challenges h3 { font-size: 1.15rem; }
   .case__pillar { padding: 24px 20px; }
   .case__gallery { grid-template-columns: 1fr; gap: 18px; }
+  .case__mediaRow { grid-column: span 1; grid-template-columns: 1fr 1fr; }
   .case__media,
   .case__media--lg { grid-column: span 1; }
   .case__media img,

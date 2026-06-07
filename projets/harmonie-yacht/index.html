@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#1c1a18" />
 <meta name="color-scheme" content="dark" />
-<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="index, follow" />
 
 <title>Harmonie Yacht — Infrastructure IA · Robin Pailhes</title>
 <meta name="description" content="Conception et déploiement d'une infrastructure IA pour Harmonie Yacht (Carnon, Montpellier) : Léa, agent IA multi-canal, lead scoring, facturation automatique." />
@@ -47,10 +47,10 @@
     <span>Robin Pailhes</span>
   </a>
   <nav class="nav__links" aria-label="Navigation principale">
-    <a href="/#ethos" data-cursor="link"><span>01</span> Ethos</a>
-    <a href="/#capabilities" data-cursor="link"><span>02</span> Capacités</a>
-    <a href="/#work" data-cursor="link"><span>03</span> Projets</a>
-    <a href="/#voices" data-cursor="link"><span>04</span> Voix</a>
+    <a href="/#story" data-cursor="link"><span>01</span> Qui suis-je</a>
+    <a href="/#capabilities" data-cursor="link"><span>02</span> Services</a>
+    <a href="/#pricing" data-cursor="link"><span>03</span> Tarifs</a>
+    <a href="/#work" data-cursor="link"><span>04</span> Projets</a>
   </nav>
   <div class="nav__right">
     <span class="nav__time" aria-live="off"><span class="nav__timeDot"></span><span id="navTime">— : —</span> · Montpellier</span>
@@ -213,33 +213,37 @@
     </div>
 
     <div class="case__gallery">
+
+      <!-- WhatsApp conversations — côte à côte (format mobile portrait) -->
+      <div class="case__mediaRow">
+        <figure class="case__media case__media--phone">
+          <img src="/hy-whatsapp-1.png" alt="Conversation WhatsApp — Léa répond à un prospect" loading="lazy" />
+          <figcaption>Léa répond instantanément sur WhatsApp — qualification en cours.</figcaption>
+        </figure>
+        <figure class="case__media case__media--phone">
+          <img src="/hy-whatsapp-2.png" alt="Conversation WhatsApp — Léa confirme une réservation" loading="lazy" />
+          <figcaption>Confirmation de réservation envoyée automatiquement, contrat en chemin.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Dashboard principal — pleine largeur -->
       <figure class="case__media case__media--lg">
-        <img src="/hy-lea-instagram.png" alt="Conversation Instagram avec Léa" loading="lazy" onerror="this.remove()" />
-        <div class="case__placeholder" data-tone="purple">
-          <span class="case__placeholderLabel">Conversation Instagram · Léa qualifie un lead</span>
-          <span class="case__placeholderHint">À uploader : hy-lea-instagram.png</span>
-        </div>
-        <figcaption>Léa répond, pose les bonnes questions, et confirme la disponibilité — en moins de deux minutes.</figcaption>
+        <img src="/hy-dashboard.png" alt="Tableau de bord Harmonie Yacht" loading="lazy" />
+        <figcaption>Le tableau de bord centralisé — vue d'ensemble en temps réel de toute l'activité.</figcaption>
+      </figure>
+
+      <!-- Leads + Réservations côte à côte -->
+      <figure class="case__media">
+        <img src="/hy-leads.png" alt="Vue des leads scorés par Léa" loading="lazy" />
+        <figcaption>Les leads qualifiés et scorés par Léa — priorité 1 à 5, prêts à relancer.</figcaption>
       </figure>
 
       <figure class="case__media">
-        <img src="/hy-calendrier.png" alt="Calendrier des leads scorés" loading="lazy" onerror="this.remove()" />
-        <div class="case__placeholder" data-tone="amber">
-          <span class="case__placeholderLabel">Calendrier des leads scorés</span>
-          <span class="case__placeholderHint">À uploader : hy-calendrier.png</span>
-        </div>
-        <figcaption>La vue d'ensemble des prospects à venir, scoring en couleur, prochaine relance prévue.</figcaption>
+        <img src="/hy-reservations.png" alt="Vue des réservations confirmées" loading="lazy" />
+        <figcaption>Les réservations confirmées — contrat signé, facture émise, dossier classé.</figcaption>
       </figure>
 
-      <figure class="case__media">
-        <img src="/hy-drive-factures.png" alt="Google Drive des factures auto-générées" loading="lazy" onerror="this.remove()" />
-        <div class="case__placeholder" data-tone="green">
-          <span class="case__placeholderLabel">Google Drive · Factures auto-générées</span>
-          <span class="case__placeholderHint">À uploader : hy-drive-factures.png</span>
-        </div>
-        <figcaption>Stripe émet la facture dès la confirmation. Tout est rangé automatiquement, aucune intervention.</figcaption>
-      </figure>
-
+      <!-- Schéma architecture — pleine largeur -->
       <figure class="case__media case__media--lg">
         <div class="case__schema" role="img" aria-label="Schéma de l'architecture Harmonie Yacht">
           <svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
@@ -353,23 +357,22 @@
       </h2>
       <div class="case__metrics">
         <div class="case__metric js-reveal">
-          <span class="case__metricNum">~XXX</span>
-          <span class="case__metricLabel">Messages traités auto<br/>par jour en saison</span>
+          <span class="case__metricNum">100<sup>+</sup></span>
+          <span class="case__metricLabel">Messages traités<br/>automatiquement par jour</span>
         </div>
         <div class="case__metric js-reveal">
           <span class="case__metricNum">&lt; 2 min</span>
-          <span class="case__metricLabel">Temps de réponse<br/>moyen</span>
+          <span class="case__metricLabel">Temps de réponse<br/>moyen, 24h/24</span>
         </div>
         <div class="case__metric js-reveal">
-          <span class="case__metricNum">XX h</span>
-          <span class="case__metricLabel">Heures gagnées<br/>par semaine</span>
+          <span class="case__metricNum">4h</span>
+          <span class="case__metricLabel">Économisées chaque jour,<br/>minimum</span>
         </div>
         <div class="case__metric js-reveal">
-          <span class="case__metricNum">+XX %</span>
-          <span class="case__metricLabel">Taux de conversion<br/>vs avant</span>
+          <span class="case__metricNum">24/7</span>
+          <span class="case__metricLabel">Disponibilité — weekend<br/>et nuits inclus</span>
         </div>
       </div>
-      <p class="case__metricNote">Chiffres à finaliser ensemble — placeholders prêts à être remplis.</p>
     </div>
   </div>
 </section>
@@ -433,20 +436,18 @@
 <footer class="footer">
   <div class="footer__marquee" aria-hidden="true">
     <div class="marquee__track marquee__track--lg">
-      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>Premier appel offert</span><span class="marquee__dot">●</span>
       <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
-      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
+      <span>Plus de clients, moins de paperasse</span><span class="marquee__dot">●</span>
+      <span>Premier appel offert</span><span class="marquee__dot">●</span>
       <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
-      <span>Disponible Q3 2026</span><span class="marquee__dot">●</span>
-      <span>contact@robinpailhes.fr</span><span class="marquee__dot">●</span>
+      <span>Plus de clients, moins de paperasse</span><span class="marquee__dot">●</span>
     </div>
   </div>
   <div class="container footer__bottom">
     <span>© <span id="year"></span> Robin Pailhes</span>
     <span class="footer__links">
-      <a href="https://www.linkedin.com/" data-cursor="link" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/" data-cursor="link" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://x.com/" data-cursor="link" target="_blank" rel="noopener">X</a>
+      <a href="/mentions-legales/" data-cursor="link">Mentions légales</a>
     </span>
     <span class="footer__made">Conçu &amp; développé à Montpellier</span>
   </div>
